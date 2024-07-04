@@ -1,0 +1,73 @@
+// If you want to override variables do it here
+@import "variables";
+
+// Import styles
+@import "~@coreui/coreui/scss/coreui";
+
+// If you want to add something do it here
+@import "custom";
+
+@import "~ngx-toastr/toastr";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+
+.main .container-fluid {
+  padding: 0 10px;
+  margin-bottom: 0;
+}
+
+// .btn {
+//   margin-right: 10px;
+// }
+.card {
+  margin-bottom: 0;
+
+  .card-body {
+    padding: .7rem;
+  }
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.btn-hover-cusotm button:hover {
+  background: #f79521;
+  color: #fff !important;
+}
+
+.breadcrumb {
+  margin-bottom: 14px;
+}
+
+ngb-modal-backdrop.modal-backdrop.fade.show {
+  z-index: 1020 !important;
+}
+
+.form-select {
+  padding: 0.25rem 2.25rem 0.25rem 0.75rem !important;
+}
+
+.btn:disabled {
+  cursor: not-allowed !important;
+}
+
+.nav-logo {
+  width: 140px;
+}
+
+@media(max-width:768px) {
+  .nav-logo {
+    width: 200px;
+  }
+}
+
+@media(max-width:425px) {
+  .app-header .navbar-brand {
+    left: 36%;
+  }
+
+  .nav-logo {
+    width: 160px;
+  }
+}

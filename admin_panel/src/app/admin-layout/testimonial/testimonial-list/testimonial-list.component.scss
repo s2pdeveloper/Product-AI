@@ -1,0 +1,9 @@
+.box-span2 {
+    display: inline-block;
+    width: 400px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    vertical-align: super;
+  }
+  

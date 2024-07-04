@@ -1,0 +1,233 @@
+<div class="container-fluid animated fadeIn" style="padding: 20px; padding-top: 0px">
+    <div class="card" *ngIf="userDetails.role === 'SUPER ADMIN' || userDetails.role === 'ADMIN'">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-6 align-self-center">
+                    <h4 class="mb-0">User Details</h4>
+                </div>
+                <div class="col-md-6 text-right">
+                    <div class="text-right">
+                            <button type="button" class="btn btn-secondary" (click)="goBack()">
+                                <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-5 mx-auto">
+                    <div class="card mb-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img src="assets/img/placeholder.jpg"  width="100" class="rounded-circle img-thumbnail" alt="profile-image">
+                            </div>
+                            <div class="text-center my-3">
+                                <h5>
+                                    <span>Role :</span>
+                                    <span class="font-weight-bold"> {{ userDetails.role }}</span>
+                                </h5>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">First Name</h6>
+                                    <h6>{{ userDetails.firstName }}</h6>                                    
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Last Name</h6>
+                                    <h6>{{ userDetails.lastName }}</h6>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">User Name</h6>
+                                    <h6>{{ userDetails.userName }}</h6>                                    
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Location</h6>
+                                    <h6>{{ userDetails.location }}</h6>
+                                </div>
+                            </div>
+                            <hr>
+                            <h6 class="font-weight-bold">Email Id</h6>
+                            <h6>{{ userDetails.email }}</h6>
+                            <hr>
+                            <h6 class="font-weight-bold">Mobile Number</h6>
+                            <h6>{{ userDetails.mobile }}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card" *ngIf="userDetails.role === 'COMPANY'">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-9 align-self-center">
+                    <h4 class="mb-0">User Details</h4>
+                </div>
+                <div class="col-md-3 text-right">
+                    <div class="text-right">
+                        <div role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-warning" (click)="edit()">
+                                <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                            </button>
+                            <button type="button" class="btn btn-secondary" (click)="goBack()">
+                                <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-5 mx-auto">
+                    <div class="card mb-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img src="assets/img/placeholder.jpg"  width="100" class="rounded-circle img-thumbnail" alt="profile-image">
+                            </div>
+                            <div class="text-center my-3">
+                                <h5>
+                                    <span>Role :</span>
+                                    <span class="font-weight-bold"> {{ userDetails.role }}</span>
+                                </h5>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Company Name</h6>
+                                    <h6>{{ userDetails.name }}</h6>                                    
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Contact Person Name</h6>
+                                    <h6>{{ userDetails.contactPersonName }}</h6>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Email Id</h6>
+                                    <h6>{{ userDetails.emailId }}</h6>                                    
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Mobile Number</h6>
+                                    <h6>{{ userDetails.mobileNo }}</h6>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Company Type</h6>
+                                    <h6>{{ userDetails.companyType }}</h6>                                    
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Total Number of Employees</h6>
+                                    <h6>{{ userDetails.totalNoOfEmployees }}</h6>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Address</h6>
+                                    <h6>{{ userDetails.address }}</h6>                                    
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Status</h6>
+                                    <h6>{{ userDetails.status }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card" *ngIf="userDetails.role === 'COLLEGE'">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-9 align-self-center">
+                    <h4 class="mb-0">User Details</h4>
+                </div>
+                <div class="col-md-3 text-right">
+                    <div class="text-right">
+                        <div role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-warning" (click)="editCollege()">
+                                <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                            </button>
+                            <button type="button" class="btn btn-secondary" (click)="goBack()">
+                                <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-5 mx-auto">
+                    <div class="card mb-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img src="assets/img/placeholder.jpg"  width="100" class="rounded-circle img-thumbnail" alt="profile-image">
+                            </div>
+                            <div class="text-center my-3">
+                                <h5>
+                                    <span>Role :</span>
+                                    <span class="font-weight-bold"> {{ userDetails.role }}</span>
+                                </h5>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">College Name</h6>
+                                    <h6>{{ userDetails.collegeName }}</h6>                                    
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Contact Person Name</h6>
+                                    <h6>{{ userDetails.contactPerson }}</h6>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Email Id</h6>
+                                    <h6>{{ userDetails.email }}</h6>                                    
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Mobile Number</h6>
+                                    <h6>{{ userDetails.mobile }}</h6>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Education Type</h6>
+                                    <h6>{{ userDetails.educationType }}</h6>                                    
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Type</h6>
+                                    <h6>{{ userDetails.type }}</h6>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Address</h6>
+                                    <h6>{{ userDetails.stateId }}, {{ userDetails.districtId }}.</h6>                                    
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <h6 class="font-weight-bold">Status</h6>
+                                    <h6>{{ userDetails.status }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

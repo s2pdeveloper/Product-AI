@@ -1,0 +1,93 @@
+// .posi{
+//     position: absolute;
+//     max-width: 100%;
+//     padding: 0 15px;
+// }
+// .mt-custom{
+//     margin-top: 10rem;
+// }
+// .slider-cusotm img{
+//     height: 100vh;
+// }
+
+// .customer-suppot{
+//     max-width: 300px;
+//     position: fixed;
+//     right: 10px;
+//     top: 10px;
+// }
+
+// .error-left{
+//     position: relative;
+//     left: 42px;
+// }
+.login-bg{
+    // padding: 30px 15px;
+    
+}
+
+// .posi{
+// // background-image: url(user);
+// // background: rgb(2,0,36);
+// // background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+// }
+
+
+
+
+
+// .posi{
+    // color: #AB31D8;
+    //    color : #3FBCF3;
+// }
+
+.meta{
+    height:100vh !important;
+    // background-color: #AB31D8;  
+    // background-image: linear-gradient(to top, #df57ad 0%, #844dcc 100%);
+    background-image: url(../../../assets/img/bg1.jpg);
+    background-size: cover;
+    // opacity:;
+}
+
+.custom{
+    margin-top: 8rem;
+}
+
+.login{
+    // margin-top: 1;
+    // right: 2rem;
+    border: 0;  
+}
+
+input:focus{
+    box-shadow:0 0 0 0.23rem #87d0f0;
+    border-color: #87d0f0;
+}
+
+.color{
+    color: white;
+    background-color:  #1eb2f1;
+}
+
+.color:hover{
+    color: white;
+    background-color:  #1eb2f1;
+}
+
+
+
+.form-control.ng-touched.ng-invalid{
+    border-color: #f00;
+}
+.form-control.ng-touched.ng-invalid:focus{
+    box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 25%);;
+}
+
+.line{
+    line-height:20px;
+}
+
+.form-control{
+    font-size: 14px;
+}

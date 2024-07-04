@@ -1,0 +1,258 @@
+                    
+
+
+                            "***********COSMATICS************"
+                                          
+
+                                          TRY-1
+
+  
+key= Brand,Item dimensions L x W x H,redients,Skin Type,Net Quantity,Item Weight,Sun Protection Factor,Product Benefits                                       
+PROMPT=generate description of product for ecommerce website in json format based on these keys ${keys} should also  have a key "About ITEM" and "About ITEM" should be object  which should have answer in point with keys shoulb be atleast have 7 points 
+description:""
+
+output:{
+  "Brand": "La Shield",
+  "Item dimensions L x W x H": "Refer product packaging for precise dimensions",
+  "Ingredients": "25% Micronized Zinc Oxide",
+  "Skin Type": "All Skin Types",
+  "Net Quantity": "50g",
+  "Item Weight": "50g",
+  "Sun Protection Factor": "SPF 50+ PA+++",
+  "Product Benefits": "Water resistant for up to 8 hours, Dermatologically tested, Chemical filter free, Matte finish, Provides broad spectrum protection, Suitable for all skin types, Non-comedogenic",
+  "About ITEM": {
+    "1": "Broad Spectrum Protection: Guards against UVA and UVB rays with SPF 50+ PA+++. ",
+    "2": "Water Resistant: Effective protection for up to 8 hours even in water.",
+    "3": "Chemical Filter Free: Safe for all skin types, free from harmful chemicals.",
+    "4": "Matte Finish: Leaves a non-greasy, matte texture on the skin.",
+    "5": "Dermatologically Tested: Scientifically tested for safety on different skin types.",
+    "6": "Main Ingredient: Contains 25% micronized zinc oxide to provide sun protection.",
+    "7": "Non-Comedogenic: Will not clog pores, suitable for acne-prone skin."
+  }
+}
+
+                                                       TRY-2
+  
+key= Brand,Item dimensions L x W x H,redients,Skin Type,Net Quantity,Item Weight,Sun Protection Factor,Product Benefits                                       
+PROMPT=generate description of product for ecommerce website in json format based on these keys ${keys} should also  have a key "About ITEM" and "About ITEM" should be object  which should have answer in point with keys shoulb be atleast have 7 points  || prepare output considering these point ${description}  
+description:"Paraben-Free,Lightweight Texture,Redness Remova"
+
+output:{
+    "Brand": "Elegant Jewel",
+    "Item Dimensions L x W x H": "2 x 1 x 0.5 cm",
+    "Ingredients": ["Zinc Alloy", "Simulated Pearls", "Rhinestones"],
+    "Skin Type": "All Skin Types",
+    "Net Quantity": "1 Pair",
+    "Item Weight": "5 grams",
+    "Sun Protection Factor": "Not Applicable",
+    "Product Benefits": ["Hypoallergenic", "Lightweight Texture", "Elegant Design"],
+    "About ITEM": {
+        "1": "Beautiful flower design with sparkling rhinestones.",
+        "2": "High-quality zinc alloy material ensures durability.",
+        "3": "Simulated pearls add a touch of elegance.",
+        "4": "Lightweight and comfortable to wear all day.",
+        "5": "Suitable for all skin types, hypoallergenic.",
+        "6": "Perfect for both casual and formal occasions.",
+        "7": "Easy to pair with a variety of outfits."
+    }
+}
+
+
+
+                         ***************EARINGS1***************
+
+                                      TRY1
+
+PROMPT :  generate description of product for ecommerce website in json format based on these keys Item type name,Occasion type,Gem type,Metal type,Material type, should also  have a key "About ITEM" and "About ITEM" should be object  which should have answer in point with keys shoulb be atleast have 7 points
+KEYWORDS :  Item type name,Occasion type,Gem type,Metal type,Material type,
+DESCRIPTION :
+OUTPUT :  {
+  "Item type name": "Floral Drop Earrings",
+  "Occasion type": "Casual, Formal, Party, Wedding",
+  "Gem type": "Cubic Zirconia",
+  "Metal type": "Gold Plated",
+  "Material type": "Alloy, Enamel",
+  "About ITEM": {
+    "1": "Elegant floral design with detailed petal accents",
+    "2": "Adorned with sparkling Cubic Zirconia gems for added brilliance",
+    "3": "Gold plated metal adds a touch of luxury",
+    "4": "Lightweight and comfortable for all-day wear",
+    "5": "Perfect for enhancing any casual, formal, party, or wedding attire",
+    "6": "Durable and high-quality alloy and enamel craftsmanship",
+    "7": "Secure latch closure ensures they stay in place"
+  }
+}                         
+
+
+PROMPT :  generate description of product for ecommerce website in json format based on these keys Item type name,Occasion type,Gem type,Metal type,Material type, should also  have a key "About ITEM" and "About ITEM" should be object  which should have answer in point with keys shoulb be atleast have 7 points || construct the answers considering these point YouBella Jewellery Earings Gold Plated Flora
+KEYWORDS :  Item type name,Occasion type,Gem type,Metal type,Material type,
+DESCRIPTION :  YouBella Jewellery Earings Gold Plated Flora
+OUTPUT :  {
+  "Item type name": "YouBella Jewellery Earrings",
+  "Occasion type": "Casual, Party, Wedding",
+  "Gem type": "Cubic Zirconia",
+  "Metal type": "Gold Plated",
+  "Material type": "Alloy",
+  "About ITEM": {
+    "Point 1": "Elegant floral design with intricate detailing.",
+    "Point 2": "Gold plating adds a touch of luxury.",
+    "Point 3": "Studded with sparkling cubic zirconia gems.",
+    "Point 4": "Lightweight and comfortable for all-day wear.",
+    "Point 5": "Versatile accessory suitable for various occasions including casual outings, parties, and weddings.",
+    "Point 6": "Durable alloy material ensures longevity.",
+    "Point 7": "Perfect gift for friends, family, or yourself."
+  }
+} 
+
+                                         *******EARINGS2**********
+
+                                                    TRY1
+
+ PROMPT :  I have an image of a product, and I need a description in JSON format. Below are the keys "|Item type name,Occasion type,Gem type,Metal type,Material type|" should also  have a key "About ITEM" and "About ITEM" should be object  which should have answer in point with keys shoulb be atleast have 7 points || construct the answers considering these point
+KEYWORDS :  Item type name,Occasion type,Gem type,Metal type,Material type
+DESCRIPTION :
+OUTPUT :  {
+  "Item type name": "Jhumka Earrings",
+  "Occasion type": "Traditional/Festive",
+  "Gem type": "Glass Stones",
+  "Metal type": "Oxidized Silver",
+  "Material type": "Metal Alloy",
+  "About ITEM": {
+    "Point1": "Intricately designed with an oxidized silver finish.",
+    "Point2": "Embellished with blue and white glass stones.",
+    "Point3": "Features dangling chains with decorative elements.",
+    "Point4": "Ideal for traditional and festive occasions.",
+    "Point5": "Bulky and statement-making yet comfortable to wear.",
+    "Point6": "Handcrafted for a unique and artisanal appeal.",
+    "Point7": "Complements ethnic outfits and adds elegance."
+  }
+}                                        
+
+
+                                            TRY2
+
+PROMPT :  I have an image of a product, and I need a description in JSON format. Below are the keys "|Item type name,Occasion type,Gem type,Metal type,Material type|" should also  have a key "About ITEM" and "About ITEM" should be object  which should have answer in point with keys shoulb be atleast have 7 points || construct the answers considering these point Lead free,Nickel free,
+KEYWORDS :  Item type name,Occasion type,Gem type,Metal type,Material type
+DESCRIPTION :  Lead free,Nickel free,
+OUTPUT :  {
+  "Item type name": "Earrings",
+  "Occasion type": "Traditional/Cultural",
+  "Gem type": "Synthetic Gemstone",
+  "Metal type": "Oxidized Metal",
+  "Material type": "Metal",
+  "About ITEM": {
+    "1": "These earrings are lead free, making them safe for prolonged wear.",
+    "2": "Crafted with nickel-free material to prevent skin irritation.",
+    "3": "Features intricate oxidized metalwork for a traditional look.",
+    "4": "Adorned with beautiful synthetic gemstones for added elegance.",
+    "5": "Perfect for traditional or cultural occasions and festive events.",
+    "6": "Lightweight design ensures comfort throughout the day.",
+    "7": "Unique dangle style with detailed charm embellishments."
+  }
+}                                            
+
+
+
+                                           
+                                          ********LAPTOP**********
+
+PROMPT:scription,Special Feature,Operating System,RAM Memory Installed Size,CPU Model,Colour should also  have a key "About ITEM" and "About ITEM" should be object  which should have answer in point with keys shoulb be atleast have 7 points || construct the answers considering these point 
+DESCRIPTION :  
+OUTPUT :  {
+  "Graphics Card Description": "Integrated Intel UHD Graphics",
+  "Special Feature": "Backlit Keyboard, Fingerprint Sensor, Slim Bezel",
+  "Operating System": "Windows 10 Home",
+  "RAM Memory Installed Size": "8 GB",
+  "CPU Model": "Intel Core i5-1035G1",
+  "Colour": "Slate Grey",
+  "About ITEM": {
+    "Point1": "Slim and lightweight design for easy portability.",
+    "Point2": "Powered by Intel Core i5-1035G1 processor for smooth performance.",
+    "Point3": "8 GB RAM ensures efficient multitasking.",
+    "Point4": "Comes with Windows 10 Home for a user-friendly experience.",
+    "Point5": "Features an integrated Intel UHD Graphics for basic gaming and video playback.",
+    "Point6": "Includes a backlit keyboard for comfortable typing in low light conditions.",
+    "Point7": "Equipped with a fingerprint sensor for enhanced security."
+  }
+}                                          
+
+
+
+PROMPT :  generate description of product for ecommerce website in json format based on these keys Graphics Card Description,Special Feature,Operating System,RAM Memory Installed Size,CPU Model,Colour should also  have a key "About ITEM" and "About ITEM" should be object  which should have answer in point with keys shoulb be atleast have 7 points || construct the answers considering these point ASUS Vivobook Go 14 (2023), 14
+KEYWORDS :  Graphics Card Description,Special Feature,Operating System,RAM Memory Installed Size,CPU Model,Colour,Brand,  
+DESCRIPTION :  ASUS Vivobook Go 14 (2023), 14
+OUTPUT :  {
+  "Graphics Card Description": "Integrated Intel UHD Graphics",
+  "Special Feature": "Lightweight and ultra-thin design",
+  "Operating System": "Windows 11",
+  "RAM Memory Installed Size": "8 GB",
+  "CPU Model": "Intel Celeron N4020",
+  "Colour": "Black",
+  "About ITEM": {
+    "Point1": "Sleek and portable 14-inch laptop with a modern design",
+    "Point2": "Powered by Intel Celeron N4020 processor for everyday tasks",
+    "Point3": "8GB RAM ensures smooth multitasking",
+    "Point4": "Comes with 128GB SSD storage for faster boot times and data access",
+    "Point5": "Pre-installed with Windows 11 for enhanced productivity",
+    "Point6": "Features an ergonomic keyboard and precision touchpad",
+    "Point7": "Offers a variety of connectivity options including USB, HDMI, and Wi-Fi"
+  }
+}
+
+
+
+
+
+
+
+
+                                        *********FURNITURE********
+
+
+                                                  TRY1 (TABLE)
+PROMPT :  I have an image of a product, and I need a description in JSON format. Below are the keys "|Table design,Shape,Colour,Frame Material,Product ,Brand,Dimensions|" should also  have a key "About ITEM" and "About ITEM" should be object  which should have answer in point with keys shoulb be atleast have 7 points || construct the answers considering these point 
+KEYWORDS :  Table design,Shape,Colour,Frame Material,Product ,Brand,Dimensions
+DESCRIPTION :  
+OUTPUT :  {
+  "Table design": "Folding",
+  "Shape": "Square",
+  "Colour": "Brown",
+  "Frame Material": "Wood",
+  "Product": "Folding Table",
+  "Brand": "Unknown",
+  "Dimensions": "Unknown",
+  "About ITEM": {
+    "1": "Compact and portable design for easy transportation.",
+    "2": "Durable wooden frame construction.",
+    "3": "Ideal for indoor and outdoor use.",
+    "4": "Easy to set up and fold for quick storage.",
+    "5": "Stylish brown finish that complements various decor styles.",
+    "6": "Perfect for picnics, camping, and small spaces.",
+    "7": "Lightweight yet sturdy for regular use."
+  }
+}                                                                                 
+
+
+                                              TRY2(TABLE)
+
+ PROMPT :  I have an image of a product, and I need a description in JSON format. Below are the keys "|Table design,Shape,Colour,Frame Material,Product ,Brand,Dimensions|" should also  have a key "About ITEM" and "About ITEM" should be object  which should have answer in point with keys shoulb be atleast have 7 points || construct the answers considering these point CraftsX2Z, L-B-H 13 x 13 x 13 Inch,hand crafted
+KEYWORDS :  Table design,Shape,Colour,Frame Material,Product ,Brand,Dimensions
+DESCRIPTION :  CraftsX2Z, L-B-H 13 x 13 x 13 Inch,hand crafted
+OUTPUT :  {
+  "Table design": "Folding Table",
+  "Shape": "Square", 
+  "Colour": "Brown",
+  "Frame Material": "Wood",
+  "Product" : "Table",
+  "Brand": "CraftsX2Z",
+  "Dimensions": "L-B-H 13 x 13 x 13 Inch",
+  "About ITEM": {
+    "Point1": "Handcrafted for a unique, artisanal touch.",
+    "Point2": "Compact and space-saving design.",
+    "Point3": "Durable wooden frame ensures long-lasting use.",
+    "Point4": "Perfect for both indoor and outdoor use.",
+    "Point5": "Easy to fold and store when not in use.",
+    "Point6": "Ideal for small spaces or as an accent table.",
+    "Point7": "Natural brown finish complements various décor styles."
+  }
+}                                              

@@ -1,0 +1,306 @@
+<div class="" *ngIf="!changePassword">
+  <div class="h-100-custom-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 mx-auto">
+          <form [formGroup]="changePasswordForm">
+            <div class="card shadow-sm mt-custom">
+              <div class="card-body py-5" style="background: rgba(241,241,241,0.99)">
+                <div class="row">
+                  <div class="col-md-6 border-lgin">
+                    <img src="../../../assets/img/changepass.png" class="img-fluid" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <div class="text-center">
+                      <img src="../../../assets/img/s2plogo.png" width="200" alt="">
+                      <h4 class="text-center my-4" style="color: #ff0707;">Change Your Password?</h4>
+                    </div>
+                    <div class="mb-3">
+                      <div class="input-group">
+                        <input formControlName="oldPassword" class="input form-control input-inner-shadow"
+                          placeholder="Old Password" type="password" [type]="show" [ngClass]="{
+                            'is-invalid': f['oldPassword'].invalid && submitted
+                          }" />
+                          <div class="input-group-append">
+                            <span
+                              class="input-group-text"
+                              (click)="password_display()"
+                              *ngIf="show == 'password'"
+                            >
+                              <i class="fa fa-eye-slash"></i>
+                            </span>
+                            <span
+                              class="input-group-text"
+                              (click)="password_hiden()"
+                              *ngIf="show == 'text'"
+                            >
+                              <i class="fa fa-eye"></i>
+                            </span>
+                          </div>
+                      </div>
+                      <div class="mt-1 ms-2">
+                        <validation-messages [message]="message" [control]="f['oldPassword']">
+                        </validation-messages>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <div class="input-group">
+                        <input formControlName="newPassword" class="input form-control input-inner-shadow"
+                          placeholder="New Password" [type]="visible" [ngClass]="{
+                            'is-invalid': f['newPassword'].invalid && submitted
+                          }" />
+                          <div class="input-group-append">
+                            <span
+                              class="input-group-text"
+                              (click)="password_visible()"
+                              *ngIf="visible == 'password'"
+                            > 
+                              <i class="fa fa-eye-slash"></i>
+                            </span>
+                            <span
+                              class="input-group-text"
+                              (click)="password_disable()"
+                              *ngIf="visible == 'text'"
+                            >
+                              <i class="fa fa-eye"></i>
+                            </span>
+                          </div>
+                      </div>
+                      <div class="mt-1 ms-2">
+                        <validation-messages [message]="message" [control]="f['newPassword']">
+                        </validation-messages>
+  
+                      </div>
+                    </div>
+    
+                    <div class="mb-3">
+                      <div class="input-group">
+                        <input formControlName="confirmPassword" [type]="fieldTextType ? 'text' : 'password'"
+                          class="input form-control input-inner-shadow" placeholder="Confirm Password"
+                          [ngClass]="{
+                            'is-invalid': f['confirmPassword'].invalid && submitted
+                          }" />
+                          <span class="input-group-text">
+                            <i class="fa" [ngClass]="{
+                     'fa-eye-slash': !fieldTextType,
+                     'fa-eye': fieldTextType}" (click)="toggleFieldTextType()"></i>
+                          </span>
+                      </div>
+                      <div class="mt-1 ms-2">
+                        <validation-messages [control]="f['confirmPassword']">
+                        </validation-messages>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <button type="button" (click)="setPass()" class="btn btn-primary">
+                        Submit
+                      </button>
+                    </div>
+                    <div class="text-center mt-3">
+                      Back To <a [routerLink]="['/login']" [routerLinkActive]="['router-link-active']">Login.</a>
+                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="" *ngIf="changePassword">
+  <div class="container posi">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <form novalidate [formGroup]="setPasswordForm">
+          <div class="card mt-custom shadow-sm">
+            <div class="card-header">
+              <h2 class="text-center m-0">Reset Password</h2>
+            </div>
+            <div class="card-body">
+              <p class="text-muted text-center">Set New Password</p>
+              <div class="mb-3">
+                <div class="input-group">
+                  <input type="password"
+                  class="form-control" placeholder="New Password" [type]="show"
+
+                    formControlName="password" autocomplete="current-password" required>
+
+                    <div class="input-group-append">
+                      <span
+                        class="input-group-text"
+                        (click)="password_display()"
+                        *ngIf="show == 'password'"
+                      >
+                        <i class="fa fa-eye-slash"></i>
+                      </span>
+                      <span
+                        class="input-group-text"
+                        (click)="password_hiden()"
+                        *ngIf="show == 'text'"
+                      >
+                        <i class="fa fa-eye"></i>
+                      </span>
+                    </div>
+                    <div class="mt-2">
+                      <validation-messages style="text-align: left" [control]="setPasswordForm.controls['password']">
+                      </validation-messages>
+      
+                    </div>
+    
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="input-group">
+                  <input type="text" class="form-control"
+                    placeholder="Confirm Password" formControlName="confirmPassword" [type]="visible"
+                    autocomplete="current-password"
+                    required>
+
+                    <div class="input-group-append">
+                      <span
+                        class="input-group-text"
+                        (click)="password_visible()"
+                        *ngIf="visible == 'password'"
+                      >
+                        <i class="fa fa-eye-slash"></i>
+                      </span>
+                      <span
+                        class="input-group-text"
+                        (click)="password_disable()"
+                        *ngIf="visible == 'text'"
+                      >
+                        <i class="fa fa-eye"></i>
+                      </span>
+                    </div>
+                </div>
+                <validation-messages [control]="fs['confirmPassword']">
+                </validation-messages>
+              </div>
+              <div class="row">
+                <div class="col-md-7 col-7">
+                  <button type="submit" class="btn btn-primary shadow-sm" (click)="setPass()"
+                    [disabled]="setPasswordForm.invalid">Submit</button>
+                  <!-- <button type="button" class="btn btn-primary active" [routerLink]="['/forgot-pwd']"
+                    [routerLinkActive]="['router-link-active']">Register Now!</button> -->
+                </div>
+                <div class="col-md-5 text-right pt-2">
+                  Back To <a [routerLink]="['/login']" [routerLinkActive]="['router-link-active']">Login.</a>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+  <!-- <div class="h-100-custom-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div class="card shadow-sm m-top-custom" style="background: #f6f6f6">
+            <div class="card-body py-3">
+
+              <div class="my-4 text-center">
+                <img
+                  src="./assets/images/border.png"
+                  width="300"
+                  alt="Card image cap"
+                  class="img-fluid"
+                />
+              </div>
+              <form [formGroup]="setPasswordForm">
+                <div class="mb-3">
+                  <h4>Set new password</h4>
+                </div>
+                <div class="mb-3">
+                  <div class="input-group">
+                    <input
+                      formControlName="newPassword"
+                      type="text"
+                      class="input form-control input-inner-shadow"
+                      placeholder="New Password"
+                      [type]="visible"
+                      [ngClass]="{
+                        'is-invalid': fs['newPassword'].invalid && submitted
+                      }"
+                    />
+                    <div class="input-group-append">
+                      <span
+                        class="input-group-text"
+                        (click)="password_visible()"
+                        *ngIf="visible == 'password'"
+                      >
+                        <i class="bi bi-eye-slash-fill"></i>
+                      </span>
+                      <span
+                        class="input-group-text"
+                        (click)="password_disable()"
+                        *ngIf="visible == 'text'"
+                      >
+                        <i class="bi bi-eye"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <validation-messages
+                    [message]="message"
+                    [control]="fs['newPassword']"
+                  >
+                  </validation-messages>
+                </div>
+
+                <div class="mb-3">
+                  <div class="input-group">
+                    <input
+                      formControlName="confirmPassword"
+                      type="password"
+                      class="input form-control input-inner-shadow"
+                      placeholder="Confirm Password"
+                      [type]="Show"
+                      [ngClass]="{
+                        'is-invalid':
+                          fs['confirmPassword'].invalid && submitted
+                      }"
+                    />
+                    <div class="input-group-append">
+                      <span
+                        class="input-group-text"
+                        (click)="password_show()"
+                        *ngIf="Show == 'password'"
+                      >
+                        <i class="bi bi-eye-slash-fill"></i>
+                      </span>
+                      <span
+                        class="input-group-text"
+                        (click)="password_hide()"
+                        *ngIf="Show == 'text'"
+                      >
+                        <i class="bi bi-eye"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <validation-messages [control]="fs['confirmPassword']">
+                  </validation-messages>
+                </div>
+                <div class="text-center mt-4">
+                  <button
+                    type="button"
+                    (click)="setPass()"
+                    class="ic-blue-btn-next"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+  </div> -->
+</div>

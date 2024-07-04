@@ -1,0 +1,145 @@
+<div class="container-fluid animated fadeIn">
+    <div class="card shadow-sm">
+      <div class="card-header">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-auto">
+            <h3 class="mb-0">AboutUs</h3>
+          </div>
+          <!-- <div class="col-auto">
+            <button type="button" class="btn btn-danger" (click)="goBack()">
+              <i class="fa fa-arrow-left me-1" aria-hidden="true"></i>
+              Back
+            </button>
+          </div> -->
+        </div>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="aboutUsForm" class="form-horizontal">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="mb-3">
+                <label class="form-label">
+                  Title
+                  <span class="text-danger">*</span>
+                </label>
+                <input
+                  formControlName="title"
+                  type="text"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      form.title.invalid &&
+                      submitted &&
+                      (form.title.errors ||
+                        form.title.touched ||
+                        form.title.dirty)
+                  }"
+                  placeholder="Enter Title"
+                />
+                <validation-messages [control]="form['title']">
+                </validation-messages>
+              </div>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">Description</label>
+                <textarea formControlName="description" rows="3" type="text" class="form-control" [ngClass]="{
+                    'is-invalid':
+                      form.description.invalid &&
+                      submitted &&
+                      (form.description.errors ||
+                        form.description.touched ||
+                        form.description.dirty)
+                  }" placeholder="Enter Description">
+                </textarea>
+                <!-- <validation-messages [control]="form['description']">
+                </validation-messages> -->
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">WHO ARE WE?</label>
+                <textarea formControlName="whoAreWE" rows="3" type="text" class="form-control" [ngClass]="{
+                    'is-invalid':
+                      form.whoAreWE.invalid &&
+                      submitted &&
+                      (form.whoAreWE.errors ||
+                        form.whoAreWE.touched ||
+                        form.whoAreWE.dirty)
+                  }" placeholder="Enter whoAreWE">
+                </textarea>
+                <!-- <validation-messages [control]="form['whoAreWE']">
+                </validation-messages> -->
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">WHAT WE DO?</label>
+                <textarea formControlName="whatWeDo" rows="3" type="text" class="form-control" [ngClass]="{
+                    'is-invalid':
+                      form.whatWeDo.invalid &&
+                      submitted &&
+                      (form.whatWeDo.errors ||
+                        form.whatWeDo.touched ||
+                        form.whatWeDo.dirty)
+                  }" placeholder="Enter whatWeDo">
+                </textarea>
+                <!-- <validation-messages [control]="form['whatWeDo']">
+                </validation-messages> -->
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">WHY US?</label>
+                <textarea formControlName="whyUs" rows="3" type="text" class="form-control" [ngClass]="{
+                    'is-invalid':
+                      form.whyUs.invalid &&
+                      submitted &&
+                      (form.whyUs.errors ||
+                        form.whyUs.touched ||
+                        form.whyUs.dirty)
+                  }" placeholder="Enter whyUs">
+                </textarea>
+                <!-- <validation-messages [control]="form['whyUs']">
+                </validation-messages> -->
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">
+                  Image
+                  <span class="text-danger">*</span>
+                </label>
+                <input
+                  (input)="fileChoosen($event)"
+                  type="file"
+                  class="form-control-file"
+                />
+                <validation-messages
+                  [control]="aboutUsForm.controls['image']"
+                >
+                </validation-messages>
+              </div>
+            </div>
+            <div class="col-md-6" *ngIf="image">
+              <img src="{{image}}" height="100" />
+            </div>
+          </div> -->
+          <div class="col-md-12 mb-3">
+            <label class="form-label">
+              Upload image
+              <span class="text-danger">*</span>
+            </label>
+            <div class="dropzone container round mx-auto"  >
+              <input type="file" (input)="fileChoosen($event)"  />
+              <i class="fa fa-upload fa-1x text-muted pb-2"></i>
+              <h5>Drag and drop file or click here</h5>
+              <small class="text-muted text-wrap">(Only *.jpeg, *.jpg and *.png files are accepted)</small>
+            </div>
+            <div></div>
+          </div>
+        </form>
+        <div class="text-center mt-3">
+          <button (click)="submit()" type="submit" class="btn btn-primary">
+            {{ form.id.value ? "Update" : "Save" }}
+          </button>
+          <button (click)="goBack()" class="btn btn-danger">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chunked Response Example</title>
+  <script>
+    async function handleSubmit(event) {
+      event.preventDefault();
+      
+      const form = document.getElementById('apiForm');
+      const formData = new FormData(form);
+
+      const response = await fetch('http://localhost:2025/api/v1/admin/gpt/GenerateDescription', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const responseStream = await response.body.getReader();
+      const decoder = new TextDecoder();
+      const responseContainer = document.getElementById('responseContainer');
+      responseContainer.innerHTML = '';
+
+      while (true) {
+        const { done, value } = await responseStream.read();
+        if (done) break;
+        const chunk = decoder.decode(value, { stream: true });
+        responseContainer.innerHTML += chunk;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Submit Form to API</h1>
+  <form id="apiForm" onsubmit="handleSubmit(event)">
+    <label for="keys">Keys:</label>
+    <input type="text" id="keys" name="keys" required><br><br>
+
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="image" accept="image/*" required><br><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description"></textarea><br><br>
+
+ <div class="userKey" id="userKey">
+
+
+ </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+
+
+
+  <h2>Response:</h2>
+  <pre id="responseContainer"></pre>
+</body>
+
+<script>
+
+
+ async function fetchProduct(){
+  const response=await fetch('http://localhost:2025/api/v1/admin/product/getById/6684f4116768dc1bd5ba5285')
+  const data=await response.json();
+  console.log("your product data",data.data.userKey)
+  const userKeyEl=document.getElementById('userKey')
+  data.data.userKey.map((input)=>{
+  const inputEl=document.createElement('input');
+  inputEl.setAttribute('name',input);
+  inputEl.setAttribute('placeholder',input)
+
+userKeyEl.appendChild(inputEl);
+
+})
+
+}
+
+fetchProduct();
+
+  
+
+
+
+</script>
+</html>

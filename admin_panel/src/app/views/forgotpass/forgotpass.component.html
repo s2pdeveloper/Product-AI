@@ -1,0 +1,91 @@
+<div class="bg overflow-auto">
+  <div class="text-left mx-2 mt-2">
+    <img src="../../../assets/img/s2p-logo.jpeg" width="100px" alt="">
+  </div>
+  <div class="container">
+    
+    <div class="row justify-content-center">
+  
+      <div class="col-md-11 mx-auto my-auto">
+        <form [formGroup]="forgetPasswordFrom">
+          <div class="card mt-custom">
+            <div class="card-body pb-5 shadow-sm" style="background: #ffff">
+              <div class="row">
+                <div class="col-md-6 border-lgin">
+                  <img src="../../../assets/img/forgot-pw.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="col-md-4 align-self-center">
+                  <div>
+                    <div class="mt-4">
+                      <h1 class="mt-4" style="color: black;"><b>Forgot</b></h1>
+                      <h1 style="color: black;"><b>Your Password ?</b></h1>
+                    </div>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input formControlName="EMAIL" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput" class="control-label">Email address</label>
+  
+                    <validation-messages [control]="forgetPasswordFrom.controls['EMAIL']">
+                    </validation-messages>
+                  </div>
+                  <div class="text-center mt-2">
+                    <button type="button" class="btn btn-primary shadow-sm text-white col-md-12" (click)="sendMail()"
+                      [disabled]="forgetPasswordFrom.invalid"><strong>Submit</strong></button>
+                  </div>
+                  <div class="text-center mt-2">
+                    Back To <a [routerLink]="['/login']" [routerLinkActive]="['router-link-active']">Login.</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+  
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-9 mx-auto">
+      <form [formGroup]="forgetPasswordFrom">
+        <div class="card">
+          <div class="card-body">
+            <div class="row text-left">
+              <img src="" alt="">
+            </div>
+            <div class="row">
+              <div class="col-md-6 border-lgin">
+                <img src="../../../assets/img/Forgotpass.png" class="img-fluid" alt="">
+              </div>
+              <div class="col-md-6 align-self-center">
+                <div class="text-center">
+                  <img src="../../../assets/img/s2plogo.png" width="200" alt="">
+                  <h4 class="text-center my-4" style="color: #ff0707;">Forgot Password?</h4>
+                </div>
+                <div class="mb-3">
+                  <input formControlName="EMAIL" type="text" class="form-control shadow-sm"
+                    placeholder="Enter Your Email">
+                  <validation-messages [control]="forgetPasswordFrom.controls['EMAIL']">
+                  </validation-messages>
+                </div>
+                <div class="text-center mt-4">
+                  <button type="button" class="btn btn-primary shadow-sm text-white" (click)="sendMail()"
+                    [disabled]="forgetPasswordFrom.invalid"><strong>Submit</strong></button>
+                </div>
+                <div class="text-center mt-3">
+                 Back To <a [routerLink]="['/login']" [routerLinkActive]="['router-link-active']">Login.</a>
+                </div>
+              </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->

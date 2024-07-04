@@ -1,0 +1,36 @@
+.m-top-custom{
+    margin-top: 3rem;
+}
+.fieldError{
+    color: red;
+}
+.mt-custom{
+    margin-top: 4.3rem;
+}
+.border-lgin{
+    border-right: 2px solid #ddd;
+}
+
+input[type="email"],
+select.form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #3b9ef3;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+input[type="email"]:focus,
+select.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.bg{
+    height: 100vh !important;
+    background-image: url(../../../assets/img/bg1.jpg);
+    background-size: cover;
+
+}
+

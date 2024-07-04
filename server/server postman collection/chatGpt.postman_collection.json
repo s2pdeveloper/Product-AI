@@ -814,6 +814,217 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "USER",
+					"item": [
+						{
+							"name": "loginn",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\":\"admin1234@gmail.com\",\r\n  \"password\":\"admin1234@super\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2025/api/v1/admin/user/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2025",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\":\"admin1234@gmail.com\",\r\n  \"password\":\"admin1234@super\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:2025/api/v1/admin/user/login",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "2025",
+											"path": [
+												"api",
+												"v1",
+												"admin",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "582"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"246-63H3AExQhQfc/Md68uDkCjzss9o\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 04 Jul 2024 11:24:36 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"user\": {\n        \"_id\": \"6686859dfe52bea087c37be2\",\n        \"isDelete\": false,\n        \"email\": \"admin1234@gmail.com\",\n        \"password\": \"$2b$08$oncNhvYN8YCETxxry1Z6OeYMPNGm/OeVnd16bagj8CBSivPBN1h92\",\n        \"firstName\": \"admin\",\n        \"lastName\": \"admin\",\n        \"gender\": \"MALE\",\n        \"role\": \"USER\",\n        \"resetPasswordOTP\": null,\n        \"createdAt\": \"2024-07-04T11:21:01.769Z\",\n        \"updatedAt\": \"2024-07-04T11:21:01.769Z\",\n        \"__v\": 0,\n        \"fullName\": \"admin admin\",\n        \"id\": \"6686859dfe52bea087c37be2\"\n    },\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODY4NTlkZmU1MmJlYTA4N2MzN2JlMiIsImlhdCI6MTcyMDA5MjI3NiwiZXhwIjoxNzIwMDk0ODY4fQ.wltvlEncMxjBFXKhjecTKZbmaJYCg9zxiSdU0ZwLH8U\"\n}"
+								}
+							]
+						},
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"admin1234@gmail.com\",\r\n    \"gender\":\"MALE\",\r\n    \"firstName\":\"admin\",\r\n    \"lastName\":\"admin\",\r\n    \"password\":\"admin1234@super\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2025/api/v1/admin/user/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2025",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "create",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\":\"admin1234@gmail.com\",\r\n    \"gender\":\"MALE\",\r\n    \"firstName\":\"admin\",\r\n    \"lastName\":\"admin\",\r\n    \"password\":\"admin1234@super\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:2025/api/v1/admin/user/register",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "2025",
+											"path": [
+												"api",
+												"v1",
+												"admin",
+												"user",
+												"register"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "425"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1a9-COENcWR57W6kd1WenD6VblY2vnI\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 04 Jul 2024 11:21:01 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User created\",\n    \"user\": {\n        \"isDelete\": false,\n        \"email\": \"admin1234@gmail.com\",\n        \"password\": \"$2b$08$oncNhvYN8YCETxxry1Z6OeYMPNGm/OeVnd16bagj8CBSivPBN1h92\",\n        \"firstName\": \"admin\",\n        \"lastName\": \"admin\",\n        \"gender\": \"MALE\",\n        \"role\": \"USER\",\n        \"resetPasswordOTP\": null,\n        \"_id\": \"6686859dfe52bea087c37be2\",\n        \"createdAt\": \"2024-07-04T11:21:01.769Z\",\n        \"updatedAt\": \"2024-07-04T11:21:01.769Z\",\n        \"__v\": 0,\n        \"fullName\": \"admin admin\",\n        \"id\": \"6686859dfe52bea087c37be2\"\n    }\n}"
+								}
+							]
+						}
+					]
 				}
 			]
 		}

@@ -13,6 +13,7 @@ app.use(express.json());
 const {GPT, GPT2}=require('./chatGpt')
 const prompt=require('./category');
 const upload = require('./src/middleware/upload');
+const swaggerHandler = require('./utils/swaggerHandler');
 app.use('/',apiRouter)
 // app.post('/gpt',upload.single('image'),async (req,res,next)=>{
 
@@ -22,6 +23,8 @@ app.use('/',apiRouter)
 
 // })
 
+
+swaggerHandler.setup(app)
 app.listen(PORT, () => {
     console.log(`Server is running on PORT ${PORT}`);
 });

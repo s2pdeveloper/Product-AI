@@ -33,5 +33,5 @@ const endpointsFiles = ["src/controllers/v1/admin/**.js"]; // Include all your e
 
 const swaggerAutoGenInstance = swaggerAutoGen();
 swaggerAutoGenInstance(outputFile, endpointsFiles, doc).then(() => {
-  swaggerHandler.updateSwaggerDoc();
+   swaggerHandler.updateSwaggerDoc();
 });

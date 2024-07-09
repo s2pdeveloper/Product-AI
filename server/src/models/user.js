@@ -45,6 +45,11 @@ const UserSchema = mongoose.Schema(
       default:"USER"
 
     },
+    status:{
+      type:String,
+      enum:["active","deleted","blocked"],
+      default:"active"
+    },
     resetPasswordOTP: {
       type: String,
       default:null

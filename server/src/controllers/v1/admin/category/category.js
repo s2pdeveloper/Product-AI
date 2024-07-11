@@ -87,7 +87,7 @@ return res.serverError(error)
 
 module.exports.remove=async(req,res,next)=>{
     try {
-        const exist=await Category.findById(req.body._id);
+        const exist=await Category.findById(req.params.id);
         if(!exist){
             return res.status(500).json({ message:"Data not Exist"});
         }

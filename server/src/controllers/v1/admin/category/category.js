@@ -16,6 +16,20 @@ module.exports.create=async(req,res,next)=>{
 }
 
 
+module.exports.getAll=async(req,res,next)=>{
+   try {
+   
+ const category= await Category.find({});
+    res.success({
+       data:category
+    })   
+   } catch (error) {
+    console.log(error);
+    return res.serverError(error)
+   }
+}
+
+
 module.exports.getById=async(req,res,next)=>{
    try {
     const exist=await Category.findById(req.params.id); 

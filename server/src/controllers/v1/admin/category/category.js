@@ -45,6 +45,27 @@ return res.serverError(error)
    }
 }
 
+
+
+module.exports.getAllCategory=async(req,res,next)=>{
+  const category=await Category.aggregate([
+    {
+        $project:{
+            description:0,
+            createdAt:0,
+            updatedAt:0,
+            __v:0
+        }
+    }
+  ])
+
+ 
+
+  return category
+}
+
+
+
 module.exports.update=async(req,res,next)=>{
    try {
     const exist=await Category.findById(req.params.id);

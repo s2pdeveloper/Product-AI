@@ -2,8 +2,8 @@ const { Mongoose, default: mongoose } = require("mongoose");
 const { productCategories } = require("../../../../../category");
 const Category = require("../../../../models/category");
 const Product = require("../../../../models/product");
-
 const AuthHelpler=require("../../../../models/helper/AuthHelper")
+const categoryHandler=require("../category/category")
 
 
 module.exports.create = async (req, res, next) => {
@@ -23,6 +23,18 @@ module.exports.getAll = async (req, res, next) => {
   const product=  await Product.find({});
     res.success({
       data:product
+    });
+  } catch (error) {
+    console.log(error);
+    return res.serverError(error);
+  }
+};
+
+module.exports.getAllCategory= async (req, res, next) => {
+  try {
+ const category=await categoryHandler.getAllCategory()
+    res.success({
+      data:category
     });
   } catch (error) {
     console.log(error);

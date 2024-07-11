@@ -32,7 +32,7 @@ export class UserListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userDetails = this.storageService.get('s2pUser');
+    this.userDetails = this.storageService.get('AIuser');
     this.getAll();
     
   }

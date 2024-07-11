@@ -34,7 +34,7 @@ export class AuthService {
   }
 
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('s2pUser'));
+    const user = JSON.parse(localStorage.getItem('AIuser'));
     return user !== null;
   }
 
@@ -42,7 +42,7 @@ export class AuthService {
     // remove user from local storage to log user out
     if (typeof window !== 'undefined') {
       this.router.navigateByUrl('login');
-      localStorage.removeItem('s2pUser');
+      localStorage.removeItem('AIuser');
     }
   }
  

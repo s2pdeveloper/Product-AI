@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userDetails = this.storageService.get('s2pUser');
+    this.userDetails = this.storageService.get('AIuser');
   }
 
   edit() {

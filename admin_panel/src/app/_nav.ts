@@ -20,21 +20,33 @@ export const navItems: INavData[] = [
     icon: 'icon-user',
   },
 
+  {
+    name: 'Category',
+    url: '/category/category-list',
+    icon: 'icon-user',
+  },
+
+  {
+    name: 'Product',
+    url: '/product/product-list',
+    icon: 'icon-user',
+  },
+
   // {
   //   name: 'Slider',
   //   url: '/images/image/1',
   //   icon: 'cil-image-plus',
   // },
-  {
-    name: 'StudentAchievement',
-    url: '/studentAchievement/studentAchievement',
-    icon: 'cil-spreadsheet',
-  },
-  {
-    name: 'Notification',
-    url: '/notification/notification-list',
-    icon: 'icon-bell',
-  },
+  // {
+  //   name: 'StudentAchievement',
+  //   url: '/studentAchievement/studentAchievement',
+  //   icon: 'cil-spreadsheet',
+  // },
+  // {
+  //   name: 'Notification',
+  //   url: '/notification/notification-list',
+  //   icon: 'icon-bell',
+  // },
   // {
   //   name: 'Title',
   //   url: '/title',
@@ -45,21 +57,17 @@ export const navItems: INavData[] = [
   //   url: '/aboutUs/aboutUs-form',
   //   icon: 'cil-header',
   // },
-  {
-    name: 'Home',
-    url: '/home/home-form',
-    icon: 'cil-home',
-  },
-  {
-    name: 'Gallery',
-    url: '/gallery/gallery-list',
-    icon: 'cil-header',
-  },
-  {
-    name: 'Testimonial',
-    url: '/testimonial',
-    icon: 'cil-header',
-  },
+  // {
+  //   name: 'Home',
+  //   url: '/home/home-form',
+  //   icon: 'cil-home',
+  // },
+  
+  // {
+  //   name: 'Testimonial',
+  //   url: '/testimonial',
+  //   icon: 'cil-header',
+  // },
   
 ];
 

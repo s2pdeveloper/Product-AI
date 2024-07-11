@@ -25,7 +25,7 @@ export class DefaultLayoutComponent {
   }
 
   ngOnInit(): void {
-    this.userDetails = this.storageService.get('s2pUser');
+    this.userDetails = this.storageService.get('AIuser');
   }
 
   // viewProfile() {

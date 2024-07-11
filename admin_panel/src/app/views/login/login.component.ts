@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.getCourseListing();
     this.createForm();
-    localStorage.removeItem('s2pUser');
+    localStorage.removeItem('AIuser');
     // get return url from route parameters or default to "/"
     this.returnUrl =
       this.route.snapshot.queryParams[`returnUrl`] || '/dashboard';
@@ -66,8 +66,11 @@ export class LoginComponent implements OnInit {
   login() {
     this.spinner.show();
     this.authService.login(this.loginForm.value).subscribe((success) => {
+      console.log(success);     
       if (typeof window !== 'undefined') {
-        localStorage.setItem('s2pUser', JSON.stringify(success));
+        localStorage.setItem('AIuser', JSON.stringify(success));
+  
+
       }
       // this.toastService.success('Login done Successfully!');
       this.router.navigate(['./dashboard']);

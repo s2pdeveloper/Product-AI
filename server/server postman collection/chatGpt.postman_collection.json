@@ -1,0 +1,1032 @@
+{
+	"info": {
+		"_postman_id": "b069cd76-561d-4c87-8ef6-4df00fb2a129",
+		"name": "chatGpt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33771971"
+	},
+	"item": [
+		{
+			"name": "ADMIN",
+			"item": [
+				{
+					"name": "GENERATE",
+					"item": [
+						{
+							"name": "genrate",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "generateDescription",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "productId",
+											"value": "6684f28c6768dc1bd5ba527f",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Mohd shahnawaz/Downloads/GPT TESTING IMAGES/HP.jpg"
+										},
+										{
+											"key": "description",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:2025/api/v1/admin/gpt/generateDescription",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2025",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"gpt",
+										"generateDescription"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CATEGORY",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2025/api/v1/admin/category/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2025",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"category",
+										"create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "create",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\":\"furniture\",\r\n    \"description\":\"wooden and metal furniture\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:2025/api/v1/admin/category/create",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "2025",
+											"path": [
+												"api",
+												"v1",
+												"admin",
+												"category",
+												"create"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "30"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1e-nH1BvirEzxRW2buh+h1M7XbM14U\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 02 Jul 2024 09:23:38 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Category Created\"\n}"
+								}
+							]
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2025/api/v1/admin/category/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2025",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"category",
+										"create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:2025/api/v1/admin/category/delete/6683c71ab0d359daf5e020db",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "2025",
+											"path": [
+												"api",
+												"v1",
+												"admin",
+												"category",
+												"delete",
+												"6683c71ab0d359daf5e020db"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "30"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1e-fCmvC+j+BkUoRYUKzs5SwBYlhxA\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 02 Jul 2024 09:36:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Category Deleted\"\n}"
+								}
+							]
+						},
+						{
+							"name": "getById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:2025/api/v1/admin/category/getById/6683c71ab0d359daf5e020db",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2025",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"category",
+										"getById",
+										"6683c71ab0d359daf5e020db"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "getById",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:2025/api/v1/admin/category/getById/6683c71ab0d359daf5e020db",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "2025",
+											"path": [
+												"api",
+												"v1",
+												"admin",
+												"category",
+												"getById",
+												"6683c71ab0d359daf5e020db"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "191"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"bf-JNPESv+88i1VC0KC8z8IqMSqQzM\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 02 Jul 2024 09:29:35 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"_id\": \"6683c71ab0d359daf5e020db\",\n        \"name\": \"furniture\",\n        \"description\": \"wooden and metal furniture\",\n        \"createdAt\": \"2024-07-02T09:23:38.099Z\",\n        \"updatedAt\": \"2024-07-02T09:23:38.099Z\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": [
+								{
+									"name": "update",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\":\"change\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:2025/api/v1/admin/category/update/6683c71ab0d359daf5e020db",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "2025",
+											"path": [
+												"api",
+												"v1",
+												"admin",
+												"category",
+												"update",
+												"6683c71ab0d359daf5e020db"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "30"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1e-iADJWwCnKyio2ubrb6IfCZQDNcU\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 02 Jul 2024 09:31:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Category Updated\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "PRODUCT",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"name\":\"Table\",\r\n   \"description\":\"smalll foldable table\",\r\n   \"key\":[\"color\" , \"materailType\",\"foldable\",\"foldable\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2025/api/v1/admin/product/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2025",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"product",
+										"create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "create",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"name\":\"Table\",\r\n   \"description\":\"smalll foldable table\",\r\n   \"key\":[\"color\" , \"materailType\",\"foldable\",\"foldable\"]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:2025/api/v1/admin/product/create",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "2025",
+											"path": [
+												"api",
+												"v1",
+												"admin",
+												"product",
+												"create"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "29"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1d-iycepjMVxWZMWa0XkIvc+PJmoj8\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 02 Jul 2024 10:15:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Product Created\"\n}"
+								}
+							]
+						},
+						{
+							"name": "getById",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": [
+								{
+									"name": "getById",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:2025/api/v1/admin/product/getById/6683cccbd43b8a28239b4d3d",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "2025",
+											"path": [
+												"api",
+												"v1",
+												"admin",
+												"product",
+												"getById",
+												"6683cccbd43b8a28239b4d3d"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "235"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"eb-s8gjw+rb4ohkWzdoCnUmmW6vxkY\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 02 Jul 2024 09:55:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"_id\": \"6683cccbd43b8a28239b4d3d\",\n        \"name\": \"Table\",\n        \"description\": \"smalll foldable table\",\n        \"key\": \"color , materailType,foldable,weightCapicity\",\n        \"createdAt\": \"2024-07-02T09:47:55.417Z\",\n        \"updatedAt\": \"2024-07-02T09:47:55.417Z\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"udated\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2025/api/v1/admin/product/update/6683cccbd43b8a28239b4d3d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2025",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"product",
+										"update",
+										"6683cccbd43b8a28239b4d3d"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "uipdate",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\":\"udated\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:2025/api/v1/admin/product/update/6683cccbd43b8a28239b4d3d",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "2025",
+											"path": [
+												"api",
+												"v1",
+												"admin",
+												"product",
+												"update",
+												"6683cccbd43b8a28239b4d3d"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "29"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1d-AyKvaBjqoiVY/NoAc/fAVUXGyVc\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 02 Jul 2024 09:59:57 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Product Updated\"\n}"
+								}
+							]
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": [
+								{
+									"name": "delete",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:2025/api/v1/admin/product/delete/6683cccbd43b8a28239b4d3d",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "2025",
+											"path": [
+												"api",
+												"v1",
+												"admin",
+												"product",
+												"delete",
+												"6683cccbd43b8a28239b4d3d"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "29"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1d-NVIswRXagzMb5dmAAfMBUa9D2z0\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 02 Jul 2024 10:02:19 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Product Deleted\"\n}"
+								}
+							]
+						},
+						{
+							"name": "getProductByCategoryId",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "USER",
+					"item": [
+						{
+							"name": "loginn",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\":\"admin1234@gmail.com\",\r\n  \"password\":\"admin1234@super\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2025/api/v1/admin/user/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2025",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\":\"admin1234@gmail.com\",\r\n  \"password\":\"admin1234@super\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:2025/api/v1/admin/user/login",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "2025",
+											"path": [
+												"api",
+												"v1",
+												"admin",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "582"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"246-63H3AExQhQfc/Md68uDkCjzss9o\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 04 Jul 2024 11:24:36 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"user\": {\n        \"_id\": \"6686859dfe52bea087c37be2\",\n        \"isDelete\": false,\n        \"email\": \"admin1234@gmail.com\",\n        \"password\": \"$2b$08$oncNhvYN8YCETxxry1Z6OeYMPNGm/OeVnd16bagj8CBSivPBN1h92\",\n        \"firstName\": \"admin\",\n        \"lastName\": \"admin\",\n        \"gender\": \"MALE\",\n        \"role\": \"USER\",\n        \"resetPasswordOTP\": null,\n        \"createdAt\": \"2024-07-04T11:21:01.769Z\",\n        \"updatedAt\": \"2024-07-04T11:21:01.769Z\",\n        \"__v\": 0,\n        \"fullName\": \"admin admin\",\n        \"id\": \"6686859dfe52bea087c37be2\"\n    },\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODY4NTlkZmU1MmJlYTA4N2MzN2JlMiIsImlhdCI6MTcyMDA5MjI3NiwiZXhwIjoxNzIwMDk0ODY4fQ.wltvlEncMxjBFXKhjecTKZbmaJYCg9zxiSdU0ZwLH8U\"\n}"
+								}
+							]
+						},
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"admin1234@gmail.com\",\r\n    \"gender\":\"MALE\",\r\n    \"firstName\":\"admin\",\r\n    \"lastName\":\"admin\",\r\n    \"password\":\"admin1234@super\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:2025/api/v1/admin/user/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2025",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"user",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "create",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\":\"admin1234@gmail.com\",\r\n    \"gender\":\"MALE\",\r\n    \"firstName\":\"admin\",\r\n    \"lastName\":\"admin\",\r\n    \"password\":\"admin1234@super\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:2025/api/v1/admin/user/register",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "2025",
+											"path": [
+												"api",
+												"v1",
+												"admin",
+												"user",
+												"register"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "425"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1a9-COENcWR57W6kd1WenD6VblY2vnI\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 04 Jul 2024 11:21:01 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User created\",\n    \"user\": {\n        \"isDelete\": false,\n        \"email\": \"admin1234@gmail.com\",\n        \"password\": \"$2b$08$oncNhvYN8YCETxxry1Z6OeYMPNGm/OeVnd16bagj8CBSivPBN1h92\",\n        \"firstName\": \"admin\",\n        \"lastName\": \"admin\",\n        \"gender\": \"MALE\",\n        \"role\": \"USER\",\n        \"resetPasswordOTP\": null,\n        \"_id\": \"6686859dfe52bea087c37be2\",\n        \"createdAt\": \"2024-07-04T11:21:01.769Z\",\n        \"updatedAt\": \"2024-07-04T11:21:01.769Z\",\n        \"__v\": 0,\n        \"fullName\": \"admin admin\",\n        \"id\": \"6686859dfe52bea087c37be2\"\n    }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

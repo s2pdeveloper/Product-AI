@@ -46,9 +46,9 @@ export class UserService {
             catchError(this.handleErrorObservable)
         );
     }
-    gets2pUser() {
-        if (localStorage.getItem("s2pUser")) {
-            const user = JSON.parse(localStorage.getItem("s2pUser"));
+    getAIuser() {
+        if (localStorage.getItem("AIuser")) {
+            const user = JSON.parse(localStorage.getItem("AIuser"));
             return user;
         }
     }

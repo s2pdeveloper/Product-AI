@@ -18,6 +18,18 @@ module.exports.create = async (req, res, next) => {
   }
 };
 
+module.exports.getAll = async (req, res, next) => {
+  try {
+  const product=  await Product.find({});
+    res.success({
+      data:product
+    });
+  } catch (error) {
+    console.log(error);
+    return res.serverError(error);
+  }
+};
+
 
 
 module.exports.getById = async (req, res, next) => {

@@ -917,6 +917,35 @@
 								"header": []
 							},
 							"response": []
+						},
+						{
+							"name": "getAllCategory",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGNlMzViMzAxMWNkNDgwNTRlZDUyYyIsImlhdCI6MTcyMDY5MDQwMCwiZXhwIjoxNzIwNjkyOTkyfQ.CHQtpmPI1spcTZzIeMxSKfvs8LV_Rn-TGdzIG8YRBiY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:2025/api/v1/admin/product/getAllCategory",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "2025",
+									"path": [
+										"api",
+										"v1",
+										"admin",
+										"product",
+										"getAllCategory"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},

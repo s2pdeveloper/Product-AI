@@ -96,8 +96,8 @@ export class CategoryListComponent implements OnInit {
     this.modalService.open(content, { centered: true });
   }
 
-  deleteUser(_id) {
-    this.CategoryService.deleteUser(_id).subscribe(
+  deleteUser(id) {
+    this.CategoryService.deleteUser(id).subscribe(
       (success) => {
         this.getAll();
         this.selectedRow = {};

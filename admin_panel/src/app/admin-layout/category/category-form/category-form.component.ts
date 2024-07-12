@@ -27,7 +27,7 @@ export class CategoryFormComponent implements OnInit {
     {
       _id: new FormControl(''),
       name: new FormControl('', [Validators.required]),
-      description: new FormControl ('', [Validators.required])
+      description: new FormControl ('', [Validators.required]),
     }
   )
   
@@ -92,20 +92,21 @@ export class CategoryFormComponent implements OnInit {
   update(formData){
 
     this.spinner.show();
-    this.CategoryService.updateUser(formData.id, formData).subscribe((success) => {
+    this.CategoryService.updateUser(formData._id, formData).subscribe((success) => {
       this.submitted = false;
       this.spinner.hide();
       this.toastService.success(success.message);
-      this.router.navigate(['category/category']);
+      this.router.navigate(['category/category-list']);
     });
     
   }
 
-  getUserById(_id) {
-    this.CategoryService.profile(_id).subscribe((success) => {
-      this.catForm.patchValue(success);
+  getUserById(id: any) {
+    this.CategoryService.profile(id).subscribe((success) => {
+      this.catForm.patchValue(success.data);
       console.log('success@@@@@@',success);
-      this.catForm.controls.role.disable();
+      
+      // this.catForm.controls.role.disable();
     });
   }
 

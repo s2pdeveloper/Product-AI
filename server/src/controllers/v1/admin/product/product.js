@@ -39,7 +39,7 @@ module.exports.getById = async (req, res, next) => {
     if (!exist) {
       return res.notFound('Product Not found');
     }
-    await Product.findOneAndUpdate({ _id: req.body._id }, req.body);
+    await Product.findOneAndUpdate({ _id: req.params._id }, req.body);
     res.success({
       data: exist,
     });

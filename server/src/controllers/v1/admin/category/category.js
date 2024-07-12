@@ -52,7 +52,8 @@ module.exports.update=async(req,res,next)=>{
     if(!exist){
         return res.notFound();
     }
-    await Category.findOneAndUpdate({_id:req.params.id},req.body)
+   let category= await Category.findOneAndUpdate({_id:req.params.id},req.body)
+    console.log("updated",category)
     res.success({
     message:"Category Updated"
     }) 
@@ -66,7 +67,7 @@ return res.serverError(error)
 
 module.exports.remove=async(req,res,next)=>{
     try {
-        const exist=await Category.findById(req.body._id);
+        const exist=await Category.findById(req.params.id);
         if(!exist){
             return res.status(500).json({ message:"Data not Exist"});
         }

@@ -1,0 +1,52 @@
+<div class="container-fluid">
+   <div class="container p-3">
+    <form #myForm="ngForm">
+      <select [(ngModel)]="selectedOption" name="dynamicSelect">
+        <option *ngFor="let option of options" [value]="option.id">{{ option.name }}</option>
+      </select>
+      <p>Selected Option ID: {{ selectedOption }}</p>
+    
+      
+    </form>
+
+
+
+
+
+    <!-- <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+       Categories
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Clothes</a></li>
+        <li><a class="dropdown-item" href="#">Mobiles</a></li>
+        <li><a class="dropdown-item" href="#">Car</a></li>
+      </ul>
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Product
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">shirt</a></li>
+        <li><a class="dropdown-item" href="#">iphone </a></li>
+        <li><a class="dropdown-item" href="#">Creta</a></li>
+      </ul>
+    </div> -->
+    <h2>Add Product image</h2>
+    <div class="previewContainer">
+      <img [src]="imageSrc" alt="Image Preview" class="previewImage">
+    </div><br>
+    
+      <input type="file" (change)="onFileSelected($event)" accept="image/*">
+     
+    
+    
+    
+
+    <!-- <form action="">
+    <label for="">Description:</label> <br>  
+    <input type="text" placeholder="enter description">
+    </form>
+   </div> -->
+
+</div>
+</div>

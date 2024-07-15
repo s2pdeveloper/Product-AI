@@ -26,7 +26,6 @@ app.use(helmet({
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: false }));
 app.use(cookieParser());
-
 app.set('view engine','ejs')
 app.set('views',path.resolve("./views"));
 

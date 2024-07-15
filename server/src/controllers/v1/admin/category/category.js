@@ -6,12 +6,26 @@ module.exports.create=async(req,res,next)=>{
    try {
    
     await Category.create(req.body);
-    res.status(201).json({
+    res.success({
         message:"Category Created"
-    }) 
+    })   
    } catch (error) {
     console.log(error);
-return res.status(501).json({message:`Internal Server Error ${error}`})
+    return res.serverError(error)
+   }
+}
+
+
+module.exports.getAll=async(req,res,next)=>{
+   try {
+   
+ const category= await Category.find({});
+    res.success({
+       data:category
+    })   
+   } catch (error) {
+    console.log(error);
+    return res.serverError(error)
    }
 }
 
@@ -20,51 +34,69 @@ module.exports.getById=async(req,res,next)=>{
    try {
     const exist=await Category.findById(req.params.id); 
     if(!exist){
-        return res.status(500).json({ message:"Data not Exist"});
+        return res.notFound("Data not Exist");
     }
    
-    res.status(201).json({
-    data:exist
+    res.success({
+    data:exist,
     }) 
    } catch (error) {
-
-    console.log(error);
-return res.status(501).json({message:`Internal Server Error ${error}`})
+return res.serverError(error)
    }
 }
+
+
+
+module.exports.getAllCategory=async(req,res,next)=>{
+  const category=await Category.aggregate([
+    {
+        $project:{
+            description:0,
+            createdAt:0,
+            updatedAt:0,
+            __v:0
+        }
+    }
+  ])
+
+ 
+
+  return category
+}
+
+
 
 module.exports.update=async(req,res,next)=>{
    try {
     const exist=await Category.findById(req.params.id);
     
     if(!exist){
-        return res.status(500).json({ message:"Data not Exist"});
+        return res.notFound();
     }
     await Category.findOneAndUpdate({_id:req.params.id},req.body)
-    res.status(201).json({
+    res.success({
     message:"Category Updated"
     }) 
    } catch (error) {
     console.log(error);
-return res.status(501).json({message:`Internal Server Error ${error}`})
+return res.serverError(error)
    }
 }
 
 
 
 module.exports.remove=async(req,res,next)=>{
-
     try {
-        const exist=await Category.findById(req.body._id);
+        const exist=await Category.findById(req.params.id);
         if(!exist){
             return res.status(500).json({ message:"Data not Exist"});
         }
         await Category.findOneAndDelete({_id:req.params.id})
-        res.status(201).json({
+        res.success({
             message:"Category Deleted"
         }) 
        } catch (error) {
         console.log(error);
-    return res.status(501).json({message:`Internal Server Error ${error}`})
+    return res.serverError(error)
        }
 }

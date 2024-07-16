@@ -20,7 +20,7 @@ module.exports.create = async (req, res, next) => {
 
 module.exports.getAll = async (req, res, next) => {
   try {
-  const product=  await Product.find({});
+  const product=  await Product.find({}).populate("categoryId","_id name")
     res.success({
       data:product
     });

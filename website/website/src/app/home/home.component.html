@@ -1,52 +1,45 @@
 <div class="container-fluid">
-   <div class="container p-3">
-    <form #myForm="ngForm">
-      <select [(ngModel)]="selectedOption" name="dynamicSelect">
-        <option *ngFor="let option of options" [value]="option.id">{{ option.name }}</option>
-      </select>
-      <p>Selected Option ID: {{ selectedOption }}</p>
-    
-      
+  <div class="container p-3">
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+      <div class="SelectCategories">
+        <select class="dropdown" [(ngModel)]="selectedCategoryId" name="categories" (change)="onCategoryChange()"
+          required>
+          <option value="" disabled selected>Select Category</option>
+          <option *ngFor="let category of categories" [value]="category._id">{{ category.name }}</option>
+        </select>
+
+        <select class="dropdown" [(ngModel)]="selectedProductId" name="products" required>
+          <option value="" disabled selected>Select Products</option>
+          <option *ngFor="let product of products" [value]="product._id">{{ product.name }}</option>
+        </select>
+      </div>
+
+      <h3>Add Product Image</h3>
+      <div class="previewContainer">
+        <img [src]="imageSrc" alt="Image Preview" class="previewImage">
+      </div><br>
+
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" required>
+      <br>
+
+      <button type="submit">Submit</button>
     </form>
-
-
-
-
-
-    <!-- <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-       Categories
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Clothes</a></li>
-        <li><a class="dropdown-item" href="#">Mobiles</a></li>
-        <li><a class="dropdown-item" href="#">Car</a></li>
-      </ul>
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Product
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">shirt</a></li>
-        <li><a class="dropdown-item" href="#">iphone </a></li>
-        <li><a class="dropdown-item" href="#">Creta</a></li>
-      </ul>
-    </div> -->
-    <h2>Add Product image</h2>
-    <div class="previewContainer">
-      <img [src]="imageSrc" alt="Image Preview" class="previewImage">
-    </div><br>
-    
-      <input type="file" (change)="onFileSelected($event)" accept="image/*">
-     
-    
-    
-    
-
-    <!-- <form action="">
-    <label for="">Description:</label> <br>  
-    <input type="text" placeholder="enter description">
-    </form>
-   </div> -->
-
-</div>
+    <div *ngIf="responseKeys.length > 0">
+      <div class="row">
+        <div class="col responseData ">
+          <div class="" *ngFor="let key of responseKeys">
+            <div class=" border p-3" *ngIf="key !=='About ITEM'">
+              <p class=" "><strong>{{ key }}:</strong></p><p> {{ responseData[key] }}</p>
+            </div>
+            <div class="responseValues  " *ngIf="isObject(responseData[key])">
+              <p  class=""><strong>{{ 'About ITEM' }}:</strong></p>
+              <div class=" " *ngFor="let subKey of getObjectKeys(responseData[key])">
+                <p class=" "> {{ subKey }}: {{ responseData[key][subKey] }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

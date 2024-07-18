@@ -16,22 +16,28 @@ export class HomeComponent implements OnInit {
   responseKeys: string[] = [];
   responseData: any = { 
     
-      "Brand": "Acer",
+      "Brand": "HP",
       "Screen Size": "15.6 inches",
       "Color": "Silver",
-      "HardDisk Size": "Undefined",
-      "CPU Model": "Undefined",
+      "HardDisk Size": "512 GB",
       "About ITEM": {
-          "1": "Nice product easy to use",
-          "2": "New launch with modern design",
-          "3": "Lightweight and portable",
-          "4": "High-definition display for clear visuals",
-          "5": "Suitable for both work and entertainment",
-          "6": "Comes with pre-installed operating system",
-          "7": "Good battery life for extended usage"
+          "1": "Nice product, easy to use",
+          "2": "Powered by Intel Core processor for efficient performance",
+          "3": "Lightweight design ideal for mobility",
+          "4": "Offers a full-sized keyboard for comfortable typing",
+          "5": "Equipped with HD display for clear visuals",
+          "6": "Long battery life for extended use without frequent charging",
+          "7": "Comes with ample storage space for all your files and applications"
       }
-  
+
 };
+
+newKey: string = '';
+newValue: string = '';
+keyValuePairs: any= [];
+userKey: any= [];
+// description: string = '';
+
 
   defaultImage: string = 'assets/img2.avif'; // Path to your default image
   imageSrc: string | ArrayBuffer | null = this.defaultImage;
@@ -77,22 +83,24 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  onSubmit(form: NgForm) {
-    if (form.valid && this.selectedFile) {
+  onSubmit() {
+    if (this.selectedFile) {
+      this.modifyFinalResponse()
       const formData = new FormData();
       formData.append('categoryId', this.selectedCategoryId);
       formData.append('productId', this.selectedProductId);
       formData.append('image', this.selectedFile);
+      formData.append('userKey', this.userKey);
+      // if (this.description) {
+      //   formData.append('description', this.description);
+      // }
+      
 
       this.dataService.submitData(formData).subscribe(
         (response) => {
-          // console.log('Data submitted successfully', response);
           this.responseData = response;
           this.responseKeys = Object.keys(this.responseData);
-          // console.log('responseData', this.responseData);
-
-          // Reset form after submission
-          form.resetForm();
+          this.resetForm();
           this.imageSrc = this.defaultImage;
         },
         (error) => {
@@ -100,6 +108,15 @@ export class HomeComponent implements OnInit {
         }
       );
     }
+  }
+
+  resetForm() {
+    this.selectedCategoryId = '';
+    this.selectedProductId = '';
+    this.selectedFile = null;
+    this.userKey = '';
+    // this.description = '';
+    
   }
   isObject(value: any): boolean {
     return typeof value === 'object' && value !== null;
@@ -111,4 +128,22 @@ export class HomeComponent implements OnInit {
   getObjectKeys(obj: any): string[] {
     return Object.keys(obj);
   }
+
+
+  addKeyValuePair() {
+    if (this.newKey && this.newValue) {
+      this.keyValuePairs.push({ key: this.newKey, value: this.newValue });
+      this.newKey = '';
+      this.newValue = '';
+    }
+    console.log(this.keyValuePairs);
+    
+  }
+    modifyFinalResponse(){
+    let result=[]
+    for(const item of this.keyValuePairs){
+        result.push(`'${item.key}':'${item.value}'`)
+    }
+    this.userKey = result
+}
 }

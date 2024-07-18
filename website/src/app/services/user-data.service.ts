@@ -27,9 +27,7 @@ categoryUrl = "http://localhost:2025/api/v1/admin/category/getAll";
 
 
 
-  // getCategories(): Observable<any[]> {
-  //   return this.http.get<any>(this.categoryUrl) 
-  // };
+  
 
  
 }

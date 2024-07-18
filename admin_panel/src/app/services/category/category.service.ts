@@ -25,7 +25,7 @@ export class CategoryService {
 
   constructor(private http: ApiService) {}
 
-  createUser(payload) {
+  createUser(payload:any) {
     return this.http.post(this.routes.createPath, payload).pipe(
       map((res: any) => res),
       catchError(this.handleErrorObservable)

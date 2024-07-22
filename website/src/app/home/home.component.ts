@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   selectedProductId: string = '';
   selectedFile: File | null = null;
   responseKeys: string[] = [];
-  responseData: any = { 
+  responseData: any = {
     
       "Brand": "HP",
       "Screen Size": "15.6 inches",
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
           "7": "Comes with ample storage space for all your files and applications"
       }
 
-};
+    };
 
 newKey: string = '';
 newValue: string = '';

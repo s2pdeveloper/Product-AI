@@ -1,87 +1,93 @@
 <div class="container-fluid">
-  <div class="container p-3">
+  <div class="container ">
     <form #myForm="ngForm">
       <div class="row chatgpt">
-        <div class="col-6 leftSide">
-          <select class="dropdown  mt-3 mb-3 p-1" [(ngModel)]="selectedCategoryId" name="categories"
-            (change)="onCategoryChange()" required>
-            <option value="" disabled selected>Select Category</option>
-            <option *ngFor="let category of categories" [value]="category._id">{{ category.name }}</option>
-          </select>
-          <div class="userdata ">
-            <div class="mb-3">
-              <input type="text" placeholder="Enter Key" [(ngModel)]="newKey" class="form-control" name="key"
-                required>
-              <input type="text" placeholder="Enter Value" [(ngModel)]="newValue" class="form-control" name="value"
-                required>
-              <button (click)="addKeyValuePair()" class="btn btn-primary mt-2 ">Add</button><br>
-              <!-- <input class="mb-4" type="text" placeholder="Description (optional)" [(ngModel)]="description" name="description"> -->
-            </div>
-
+        <div class="col-7 leftSide p-3">
+          <div class="row">
             <!-- Table to display key-value pairs -->
-            <table class="table w-50 ">
-              <thead>
-                <tr>
-                  <th>SR No</th>
-                  <th>Key</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="w-full" *ngFor="let pair of keyValuePairs; let i = index">
-                  <td>{{ i + 1 }}</td>
-                  <td>{{ pair.key }}</td>
-                  <td>{{ pair.value }}</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="col-8">
+              <table class="table table-bordered">
+                <thead class="table-light">
+                  <tr>
+                    <th>SR No</th>
+                    <th>Key</th>
+                    <th>Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="w-full" *ngFor="let pair of keyValuePairs; let i = index">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{ pair.key }}</td>
+                    <td>{{ pair.value }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-4">
+              <div class="mb-3 userInput">
+                <input type="text" placeholder="Enter Key" [(ngModel)]="newKey" class="form-control" name="key"
+                  #key="ngModel" required>
+                <!-- <p *ngIf="key.invalid && (key.dirty || key.touched)" class="text-danger">
+                  Key is required.
+                </p> -->
+                <input type="text" placeholder="Enter Value" [(ngModel)]="newValue" class="form-control" name="value"
+                  #value="ngModel" required>
+                <!-- <p *ngIf="value.invalid && (value.dirty || value.touched)" class="text-danger">
+                  Value is required.
+                </p> -->
+                <button (click)="addKeyValuePair()" class="btn btn-light mt-2 w-50"
+                  [disabled]="key.invalid || value.invalid">Add</button>
+              </div>
+            </div>
           </div>
-
         </div>
 
-        <div class="col-6 rightSide">
+        <div class="col-5 rightSide">
+          <div class="selectOptions">
+            <div>
+              <select class=" mt-3 mb-2 p-2 form-select" [(ngModel)]="selectedCategoryId" name="categories"
+                (change)="onCategoryChange()" #category="ngModel" required>
+                <option value="" disabled selected>Select Category</option>
+                <option *ngFor="let category of categories" [value]="category._id">{{ category.name }}</option>
+              </select>
+              <p *ngIf="category.invalid && (category.dirty || category.touched)" class="text-danger fw-bold">
+                Category is required.
+              </p>
+            </div>
+            <div>
+              <select class=" mt-3 mb-2 p-2 form-select" [(ngModel)]="selectedProductId" name="products"
+                #product="ngModel" required>
+                <option value="" disabled selected>Select Products</option>
+                <option *ngFor="let product of products" [value]="product._id">{{ product.name }}</option>
+              </select>
+              <p *ngIf="product.invalid && (product.dirty || product.touched)" class="text-danger fw-bold">
+                Product is required.
+              </p>
+            </div>
 
-          <select class="dropdown mt-3 mb-2 p-1" [(ngModel)]="selectedProductId" name="products" required>
-            <option value="" disabled selected>Select Products</option>
-            <option *ngFor="let product of products" [value]="product._id">{{ product.name }}</option>
-          </select>
+          </div>
           <div class="selectImg">
             <p>Add Product Image</p>
             <div class="previewContainer">
               <img [src]="imageSrc" alt="Image Preview" class="previewImage">
             </div><br>
-
             <input type="file" (change)="onFileSelected($event)" accept="image/*" required>
-            <br>
+            <div *ngIf="!imageSrc" class="text-light">
+              Image is required.
+            </div>
           </div>
-
         </div>
         <div class="submit mb-2">
-          <button type="button" (click)="onSubmit()" class="btn btn-primary mt-2 ">Submit</button>
+          <button type="submit" class="btn btn-outline-dark mt-2" (click)="onSubmit()">Submit</button>
         </div>
-
       </div>
     </form>
 
 
 
-    <!-- <div class=" responseData" *ngIf="responseKeys.length > 0">
-      <div class=" " *ngFor="let key of responseKeys">
-        <div class="responseKeys" *ngIf="key !=='About ITEM'">
-          <p class=""><strong>{{ key }}:</strong></p>
-          <p class=""> {{ responseData[key] }}</p>
-        </div>
-        <div class="responseValues" *ngIf="isObject(responseData[key])">
-          <p class=""><strong>{{ 'About ITEM' }}:</strong></p>
-          <div class=" " *ngFor="let subKey of getObjectKeys(responseData[key])">
-            <p class=""> {{ subKey }}: {{ responseData[key][subKey] }}</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <div class="p-5" *ngIf="responseKeys.length > 0">
+    <div class="p-5 userResponse " *ngIf="responseKeys.length > 0">
       <h3>Product Info</h3>
-      <table class="table table-bordered">
+      <table class="table table-bordered table-light">
         <thead>
           <tr>
             <th>Key</th>
@@ -100,7 +106,7 @@
 
       <!-- Table for About ITEM points -->
       <h3>About ITEM</h3>
-      <table class="table table-bordered">
+      <table class="table table-bordered table-light">
         <thead>
           <tr>
             <th>Point</th>
@@ -118,31 +124,6 @@
       </table>
     </div>
 
-    <!-- Table for added key-value pairs -->
-    <div *ngIf="keyValuePairs.length > 0">
-      <h3>Key-Value Pairs</h3>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Sr No</th>
-            <th>Key</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let pair of keyValuePairs; let i = index">
-            <td>{{ i + 1 }}</td>
-            <td>{{ pair.key }}</td>
-            <td>{{ pair.value }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-
-
-
-
-
+    
   </div>
 </div>

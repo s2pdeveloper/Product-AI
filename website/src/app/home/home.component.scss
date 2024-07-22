@@ -1,29 +1,43 @@
-.container {
-  background: linear-gradient(rgb(205, 205, 234), rgb(200, 197, 197));
+ .container-fluid{
+ 
+
   height: auto;
   text-align: center;
-  margin-top: 50px;
 
   .chatgpt {
-    box-shadow: 10px 10px 10px rgb(29, 27, 27);
-    padding: 1rem;
+    padding: 2rem;
+   
     .leftSide {
-      border: 2px solid #100d0d;
-      .userdata {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
+      background-color: rgb(170, 177, 177);
+
+      .table{
+       width: 80%;
+       
+      
+      }
+      input{
+        margin-bottom: 5px;
+      }
+      .button{
+        margin-left: 3rem;
+      
       }
     }
 
     .rightSide {
-      border: 2px solid #100d0d;
-      .selectImg {
+      background-color: rgb(200, 212, 222);
+      .selectOptions{
         display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        select{
+          width: 11rem;
+        }
+      
+        
+      }
+      .selectImg {
+    
          p{
           font-size: larger;
           font-weight: 700;
@@ -39,11 +53,15 @@
 
         input {
           margin-left: 5rem;
+         
         }
       }
 
     }
 
     
+  }
+  .userResponse{
+    background-color: rgb(156, 176, 191);
   }
 }

@@ -18,6 +18,9 @@ export class ProductFormComponent implements OnInit {
   data: string[] = [];
   Keys: any = '';
   KeysString : '';
+  userKey: any = '';
+  userKeyString : '';
+  
   
   // Keys: string[] = [];
   // payload: '';
@@ -29,6 +32,7 @@ export class ProductFormComponent implements OnInit {
     description: new FormControl('', [Validators.required]),
     categoryId: new FormControl('', [Validators.required]),
     key: new FormControl([]),
+    userKey: new FormControl([Validators.required]),
   });
 
   constructor(
@@ -68,8 +72,9 @@ export class ProductFormComponent implements OnInit {
 
     let formData = this.productForm.value;
     formData.key = this.Keys.split(',');
-    
-console.log(formData)
+    formData.userKey = this.userKey.split(',')
+
+   console.log(formData)
     
     if (formData._id) {
       this.update(formData);
@@ -77,6 +82,9 @@ console.log(formData)
       delete formData._id;
       this.create(formData);
     }
+
+
+    
   }
 
   create(formData) {

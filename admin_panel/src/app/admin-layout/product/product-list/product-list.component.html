@@ -52,6 +52,7 @@
               <th>Name</th>
               <th>Description</th>
               <th>Key</th>
+              <th>UserKey</th>
               <th>Category ID</th>
               <th>Action</th>
             </tr>
@@ -78,6 +79,17 @@
                   ngbTooltip="{{ u.key }}"
                 >
                   {{ u?.key }}
+                </span>
+              </td>
+
+
+              <td>
+                <span
+                  class="action-span"
+                  placement="left"
+                  ngbTooltip="{{ u.userKey }}"
+                >
+                  {{ u?.userKey }}
                 </span>
               </td>
 

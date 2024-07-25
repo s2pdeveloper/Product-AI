@@ -62,7 +62,7 @@
             </div>
           </div>
 
-          <label class="form-label">
+          <div><label class="form-label">
             Key
             <span class="text-danger">*</span>
           </label>
@@ -78,8 +78,18 @@
             }"
             placeholder="Enter Key"
           /> 
-          <validation-messages [control]="form['key']"> </validation-messages> -->
-
+          <validation-messages [control]="form['key']"> </validation-messages> --></div>
+          <div>
+            <label class="form-label">
+            user key
+            <span class="text-danger">*</span>
+          </label>
+          <input
+          [(ngModel)]="userKey" [ngModelOptions]="{standalone: true}"
+            type="text"
+            class="form-control"/>
+          
+         </div>
           
 
           <div class="col-md-6">

@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.userDetails = this.storageService.get('s2pUser');
+        this.userDetails = this.storageService.get('AIuser');
 
         // generate random values for mainChart
         for (let i = 0; i <= this.mainChartElements; i++) {

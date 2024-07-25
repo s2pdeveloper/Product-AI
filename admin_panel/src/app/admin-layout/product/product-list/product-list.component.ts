@@ -1,19 +1,19 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import { StorageService } from 'src/app/core/services/local-storage.service';
-import { UserService } from '../../../services/users/user.service';
+import { ProductService } from '../../../services/product/product.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss'],
+  selector: 'app-product-list',
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.scss'],
 })
-export class UserListComponent implements OnInit {
+export class ProductListComponent implements OnInit {
   selectedRow: any = {};
   users: any = [];
   search: any = '';
@@ -23,54 +23,59 @@ export class UserListComponent implements OnInit {
   userDetails: any = {};
 
   constructor(
-    private userService: UserService,
+    private ProductService: ProductService,
     private router: Router,
-    private storageService: StorageService,
     private modalService: NgbModal,
     private toastService: ToastrService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
-    this.userDetails = this.storageService.get('AIuser');
+    console.log('0---------');
+
     this.getAll();
-    
+  }
+  getAll() {
+    console.log('1---------');
+
+    this.spinner.show();
+    this.ProductService.getAllUsers({
+      page: this.page,
+      pageSize: this.pageSize,
+      search: this.search,
+    }).subscribe((success) => {
+      this.users = success.data;
+      console.log('success---------', this.users);
+      this.collection = success.count;
+      this.spinner.hide();
+    },(err:any)=>{
+    console.log('2---------', err);
+
+    });
   }
 
-  getAll() {
-    this.spinner.show();
-    this.userService
-      .getAllUsers({
-        page: this.page,
-        pageSize: this.pageSize,
-        search: this.search,
-      })
-      .subscribe((success) => {
-        this.users = success.data;
-        // console.log('success---------',success);
-        this.collection = success.count;
-        this.spinner.hide();
-      });
+  create(id: any) {
+    if (id) {
+      this.router.navigate(['product/product-form'], { queryParams: { id } });
+    } else {
+      this.router.navigate(['product/product-form']);
+    }
   }
 
   edit(id: any) {
     if (id) {
-      this.router.navigate(['users/users-form'], { queryParams: { id } });
+      this.router.navigate(['product/product-form'], { queryParams: { id } });
     } else {
-      this.router.navigate(['users/users-form']);
+      this.router.navigate(['product/product-form']);
     }
   }
-  create(id: any) {
-    if (id) {
-      this.router.navigate(['users/users-form'], { queryParams: { id } });
-    } else {
-      this.router.navigate(['users/users-form']);
-    }
-  }
+
   refreshList(title) {
     this.search = title == 'clear' ? '' : this.search;
     this.getAll();
   }
+
   onChangePage(pageNo) {
     if (pageNo > 0) {
       this.page = pageNo;
@@ -84,7 +89,7 @@ export class UserListComponent implements OnInit {
   }
 
   deleteUser(id) {
-    this.userService.deleteUser(id).subscribe(
+    this.ProductService.deleteUser(id).subscribe(
       (success) => {
         this.getAll();
         this.selectedRow = {};
@@ -97,5 +102,4 @@ export class UserListComponent implements OnInit {
       }
     );
   }
-
 }

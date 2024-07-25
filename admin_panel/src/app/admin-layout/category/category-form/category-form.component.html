@@ -1,0 +1,78 @@
+<div class="container-fluid animated fadeIn">
+    <div class="card">
+      <div class="card-header">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-auto">
+            <h3 class="mb-0">Category Form</h3>
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-danger" (click)="goBack()">
+              <i class="fa fa-arrow-left me-1" aria-hidden="true"></i>
+              Back
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="catForm" class="form-horizontal">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">
+                  Name
+                  <span class="text-danger">*</span>
+                </label>
+                <input
+                  formControlName="name"
+                  type="text"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      form.name.invalid &&
+                      submitted &&
+                      (form.name.errors ||
+                        form.name.touched ||
+                        form.name.dirty)
+                  }"
+                  placeholder="Enter Name"
+                />
+                <validation-messages [control]="form['name']">
+                </validation-messages>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">
+                  Description
+                  <span class="text-danger">*</span>
+                </label>
+                <input
+                  formControlName="description"
+                  type="text"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      form.description.invalid &&
+                      submitted &&
+                      (form.description.errors ||
+                        (form.description.touched && form.description.dirty))
+                  }"
+                  placeholder="Enter Description"
+                />
+                <validation-messages [control]="form['description']">
+                </validation-messages>
+              </div>
+            </div>
+          </div>
+          
+        </form>
+        <div class="text-center">
+            <button (click)="submit()" type="submit" class="btn btn-primary">
+                {{ form._id.value ? "Update" : "Save" }}
+              </button>
+              <button (click)="goBack()" class="btn btn-danger">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  

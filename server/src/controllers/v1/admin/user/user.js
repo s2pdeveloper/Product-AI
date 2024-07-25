@@ -33,7 +33,7 @@ const userObj = {
 
       let token=existingUser.genToken();
 
-      return res.status(201).json({
+      return res.success({
         user:existingUser,
         token:token
       })

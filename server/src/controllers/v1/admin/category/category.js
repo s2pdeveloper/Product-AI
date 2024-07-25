@@ -73,7 +73,8 @@ module.exports.update=async(req,res,next)=>{
     if(!exist){
         return res.notFound();
     }
-    await Category.findOneAndUpdate({_id:req.params.id},req.body)
+   let category= await Category.findOneAndUpdate({_id:req.params.id},req.body)
+    console.log("updated",category)
     res.success({
     message:"Category Updated"
     }) 

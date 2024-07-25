@@ -20,7 +20,7 @@ module.exports.create = async (req, res, next) => {
 
 module.exports.getAll = async (req, res, next) => {
   try {
-  const product=  await Product.find({});
+  const product=  await Product.find({}).populate("categoryId","_id name")
     res.success({
       data:product
     });
@@ -51,7 +51,7 @@ module.exports.getById = async (req, res, next) => {
     if (!exist) {
       return res.notFound('Product Not found');
     }
-    await Product.findOneAndUpdate({ _id: req.body._id }, req.body);
+    await Product.findOneAndUpdate({ _id: req.params._id }, req.body);
     res.success({
       data: exist,
     });

@@ -1,19 +1,21 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import {CategoryService} from '../../../services/category/category.service';
 import { StorageService } from 'src/app/core/services/local-storage.service';
-import { UserService } from '../../../services/users/user.service';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss'],
+  selector: 'app-category-list',
+  templateUrl: './category-list.component.html',
+  styleUrls: ['./category-list.component.scss']
 })
-export class UserListComponent implements OnInit {
+export class CategoryListComponent implements OnInit {
   selectedRow: any = {};
   users: any = [];
   search: any = '';
@@ -21,25 +23,29 @@ export class UserListComponent implements OnInit {
   pageSize = 25;
   collection: number = 0;
   userDetails: any = {};
+  storageService: any;
+
 
   constructor(
-    private userService: UserService,
+    private CategoryService: CategoryService,
     private router: Router,
-    private storageService: StorageService,
     private modalService: NgbModal,
     private toastService: ToastrService,
-    private spinner: NgxSpinnerService
-  ) {}
+    private spinner: NgxSpinnerService,
+    private StorageService: StorageService,
+    private http: HttpClient
+  ) { }
 
   ngOnInit(): void {
-    this.userDetails = this.storageService.get('AIuser');
-    this.getAll();
-    
-  }
 
+    // this.userDetails = this.storageService.get('AIuser');
+    this.getAll();
+
+
+  }
   getAll() {
     this.spinner.show();
-    this.userService
+    this.CategoryService
       .getAllUsers({
         page: this.page,
         pageSize: this.pageSize,
@@ -51,26 +57,33 @@ export class UserListComponent implements OnInit {
         this.collection = success.count;
         this.spinner.hide();
       });
+
   }
 
-  edit(id: any) {
-    if (id) {
-      this.router.navigate(['users/users-form'], { queryParams: { id } });
-    } else {
-      this.router.navigate(['users/users-form']);
-    }
-  }
   create(id: any) {
     if (id) {
-      this.router.navigate(['users/users-form'], { queryParams: { id } });
+      this.router.navigate(['category/category-form'], { queryParams: { id } });
     } else {
-      this.router.navigate(['users/users-form']);
+      this.router.navigate(['category/category-form']);
     }
   }
+
+  edit(id:any){
+
+    if(id){
+      this.router.navigate(['category/category-form'], {queryParams:{id}} );
+
+     
+    }else{
+      this.router.navigate(['category/category-form']);
+    }
+  }
+
   refreshList(title) {
     this.search = title == 'clear' ? '' : this.search;
     this.getAll();
   }
+
   onChangePage(pageNo) {
     if (pageNo > 0) {
       this.page = pageNo;
@@ -84,7 +97,7 @@ export class UserListComponent implements OnInit {
   }
 
   deleteUser(id) {
-    this.userService.deleteUser(id).subscribe(
+    this.CategoryService.deleteUser(id).subscribe(
       (success) => {
         this.getAll();
         this.selectedRow = {};
@@ -98,4 +111,8 @@ export class UserListComponent implements OnInit {
     );
   }
 
+
+
 }
+
+

@@ -81,28 +81,26 @@ export const routes: Routes = [
             (m) => m.UsersModule
           ),
       },
+
+      {
+        path: 'category',
+        loadChildren: () =>
+          import('./admin-layout/category/category.module').then(
+            (m) => m.CategoryModule
+          ),
+      },
+
+      {
+        path: 'product',
+        loadChildren: () =>
+          import('./admin-layout/product/product.module').then(
+            (m) => m.ProductModule
+          ),
+      },
      
-      {
-        path: 'notification',
-        loadChildren: () =>
-          import('./admin-layout/notification/notification.module').then(
-            (m) => m.NotificationModule
-          ),
-      },
-      {
-        path: 'studentAchievement',
-        loadChildren: () =>
-          import('./admin-layout/student-achievement/student-achievement.module').then(
-            (m) => m.StudentAchievementModule
-          ),
-      },
-      {
-        path: 'title',
-        loadChildren: () =>
-          import('./admin-layout/title/title.module').then(
-            (m) => m.TitleModule
-          ),
-      },
+      
+      
+      
       {
         path: 'aboutUs',
         loadChildren: () =>
@@ -110,27 +108,12 @@ export const routes: Routes = [
             (m) => m.AboutUsModule
           ),
       },
-      {
-        path: 'home',
-        loadChildren: () =>
-          import('./admin-layout/home/home.module').then(
-            (m) => m.HomeModule
-          ),
-      },
-      {
-        path: 'gallery',
-        loadChildren: () =>
-          import('./admin-layout/gallery/gallery.module').then(
-            (m) => m.GalleryModule
-          ),
-      },
-      {
-        path: 'testimonial',
-        loadChildren: () =>
-          import('./admin-layout/testimonial/testimonial.module').then(
-            (m) => m.TestimonialModule
-          ),
-      },
+
+
+
+      
+      
+      
      
     ],
   },

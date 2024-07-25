@@ -72,9 +72,9 @@ module.exports.getAllBycategoryId = async (req, res, next) => {
     const data = await Product.aggregate(pipeline);
    
      
-    return res.sucess({
+    return res.success({
       data: data,
-      message:"yahho from suceess"
+    
     });
   } catch (error) {
     console.log(error);

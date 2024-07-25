@@ -14,8 +14,8 @@ module.exports.generateDescription=async(req,res,next)=>{
     var keys = product.key;
     var userKey=req.body.userKey;
     var prompt = `I have an image of a product, and I need a description in JSON format. Below are the keys "|${keys}|" should also  have a key "About ITEM" and "About ITEM" should be object  which should   have answer in "point wise" Important like " '1':'nice product easy to use'  " with keys shoulb be atleast have 7 points || 
-    Product Description : construct the answers considering these point ${userKey} also include ${req.body.description}` ;
-
+    Product Description : construct the answers considering these point ${userKey} also include ${req.body.description?req.body.description:''}` ;
+console.log("your prompt",prompt)
     const chatCompletion = await openai.chat.completions.create({
       messages: [
         {

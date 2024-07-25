@@ -14,23 +14,7 @@ export class HomeComponent implements OnInit {
   selectedProductId: string = '';
   selectedFile: File | null = null;
   responseKeys: string[] = [];
-  responseData: any = {
-    
-      "Brand": "HP",
-      "Screen Size": "15.6 inches",
-      "Color": "Silver",
-      "HardDisk Size": "512 GB",
-      "About ITEM": {
-          "1": "Nice product, easy to use",
-          "2": "Powered by Intel Core processor for efficient performance",
-          "3": "Lightweight design ideal for mobility",
-          "4": "Offers a full-sized keyboard for comfortable typing",
-          "5": "Equipped with HD display for clear visuals",
-          "6": "Long battery life for extended use without frequent charging",
-          "7": "Comes with ample storage space for all your files and applications"
-      }
-
-    };
+  responseData: any = {};
 
 newKey: string = '';
 newValue: string = '';

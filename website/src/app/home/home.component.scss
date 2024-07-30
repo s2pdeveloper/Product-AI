@@ -1,7 +1,5 @@
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f0f4f8;
-  color: #333;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,24 +10,37 @@ body {
 }
 
 .chatgpt {
-  background: #fff;
+  // background: #2c3e50;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+  // box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  padding: 2rem;
+  .heading{
+    color: #2c3e50;
+    font-size: 3rem;
+    font-weight: 700;
+  }
+.section1{
+  .selectOptions {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-wrap: wrap;
+    h4{
+      color: #3498db
+    }
+  }
 }
 
-.leftSide, .rightSide {
-  border-radius: 10px;
-  padding: 20px;
+
+
+
 }
 
-.leftSide {
-  background: linear-gradient(135deg, #e2ebf0, #cfd9df);
-}
 
-.rightSide {
-  background: linear-gradient(135deg, #d3dce6, #edf2f7);
-}
+
+
 
 .table {
   background: #fff;
@@ -42,27 +53,20 @@ body {
   border-radius: 5px;
 }
 
-.form-control:focus, .form-select:focus {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.btn {
-  background: #007bff;
-  color: #fff;
-  transition: background 0.3s, transform 0.3s;
-}
-
+// .form-control:focus, .form-select:focus {
+//   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+// }
 .btn:hover {
   background: #0056b3;
   transform: scale(1.05);
 }
 
 .selectImg .previewContainer {
-  text-align: center;
+  text-align: left;
 }
 
 .previewImage {
-  max-width: 100px;
+  max-width: 15rem;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

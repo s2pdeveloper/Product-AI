@@ -1,0 +1,23 @@
+async function handleSubmit(event) {
+      event.preventDefault();
+      
+      const form = document.getElementById('apiForm');
+      const formData = new FormData(form);
+
+      const response = await fetch('http://localhost:2025/api/v1/admin/gpt/GenerateDescription', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const responseStream = await response.body.getReader();
+      const decoder = new TextDecoder();
+      const responseContainer = document.getElementById('responseContainer');
+      responseContainer.innerHTML = '';
+
+      while (true) {
+        const { done, value } = await responseStream.read();
+        if (done) break;
+        const chunk = decoder.decode(value, { stream: true });
+        responseContainer.innerHTML += chunk;
+      }
+    }

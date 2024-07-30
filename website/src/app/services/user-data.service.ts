@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import{ HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -21,14 +19,18 @@ categoryUrl = "http://localhost:2025/api/v1/admin/category/getAll";
     
   }
 
+  // submitData(formData: FormData): Observable<any> {
+  //   return this.http.post<any>('http://localhost:2025/api/v1/admin/gpt/generateDescription', formData);
+  // }
   submitData(formData: FormData): Observable<any> {
-    return this.http.post<any>('http://localhost:2025/api/v1/admin/gpt/generateDescription', formData);
+    return this.http.post('http://localhost:2025/api/v1/admin/gpt/generateDescription', formData, {
+        observe: "events",
+        responseType: "text",
+        reportProgress: true
+    });
   }
-
-
-
   
-
- 
+  
 }
+
 

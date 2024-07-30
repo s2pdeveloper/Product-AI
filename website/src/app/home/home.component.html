@@ -2,105 +2,94 @@
   <div class="container">
     <form #myForm="ngForm">
       <div class="row chatgpt">
-        <div class="col-7 leftSide p-3">
-          <div class="row">
-            <!-- Table to display key-value pairs -->
-            <div class="col-8">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>SR No</th>
-                    <th>Key</th>
-                    <th>Value</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="w-full" *ngFor="let pair of keyValuePairs; let i = index">
-                    <th scope="row">{{ i + 1 }}</th>
-                    <td>{{ pair.key }}</td>
-                    <td>{{ pair.value }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="col-4">
-              <div class="mb-3 userInput">
-                <input type="text" placeholder="Enter Key" [(ngModel)]="newKey" class="form-control" name="key" #key="ngModel" required>
-                <input type="text" placeholder="Enter Value" [(ngModel)]="newValue" class="form-control" name="value" #value="ngModel" required>
-                <button (click)="addKeyValuePair()" class="btn btn-primary mt-2 w-50" [disabled]="key.invalid || value.invalid">Add</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-5 rightSide">
-          <div class="selectOptions">
-            <div>
-              <select class="mt-3 mb-2 p-2 form-select" [(ngModel)]="selectedCategoryId" name="categories" (change)="onCategoryChange()" #category="ngModel" required>
+        <h1 class="text-center heading">WELCOME TO AI PRODUCT</h1>
+        <div class="col-12 pt-5 section1">
+          <div class="selectOptions row">
+            <div class="col-6">
+              <h4>Select You Want Category</h4>
+              <select class="mt-3 mb-2 p-3 form-select" [(ngModel)]="selectedCategoryId" name="categories"
+                (change)="onCategoryChange()" #category="ngModel" required>
                 <option value="" disabled selected>Select Category</option>
                 <option *ngFor="let category of categories" [value]="category._id">{{ category.name }}</option>
               </select>
             </div>
-            <div>
-              <select class="mt-3 mb-2 p-2 form-select" [(ngModel)]="selectedProductId" name="products" #product="ngModel" required>
-                <option value="" disabled selected>Select Products</option>
+            <div class="col-6">
+              <h4>Select You Want Product</h4>
+              <select class=" mt-3 mb-2 p-3 form-select" [(ngModel)]="selectedProductId" name="products"
+                (change)="onProductChange()" #product="ngModel" required>
+                <option value="" disabled selected >Select Product</option>
                 <option *ngFor="let product of products" [value]="product._id">{{ product.name }}</option>
               </select>
             </div>
           </div>
-          <div class="selectImg">
-            <p>Add Product Image</p>
-            <div class="previewContainer">
-              <img [src]="imageSrc" alt="Image Preview" class="previewImage">
+        </div>
+       
+        <div class="col-12 section2 mt-2">
+          <div class="row">
+          <div class=" col-6 ">
+            <p>Select your  Product Image</p>
+            <div class="previewContainer ">
+              <img  [src]="imageSrc" alt="Image Preview" class="previewImage mt-2">
             </div><br>
             <input type="file" (change)="onFileSelected($event)" accept="image/*" required>
             <div *ngIf="!imageSrc" class="text-light">
               Image is required.
             </div>
           </div>
+            <div class="col-5 ms-5">
+              <div *ngIf="keyValuePairs.length > 0">
+                <h4>Describe your Requirements in detail.</h4>
+                <table class="table table-bordered">
+                  <thead class="table-success">
+                    <tr>
+                      <th>field</th>
+                      <th>Answer</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let pair of keyValuePairs">
+                      <td class="text-primary">{{ pair.key }}</td>
+                      <td>
+                        <input type="text" [(ngModel)]="pair.value" name="{{ pair.key }}" class="form-control">
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
         </div>
+      </div>
+
+         <div class="col-12">
+          <div class="row">
+            <div class="col-5">
+              <div class="form-group">
+                <label for="description">Description (optional)</label>
+                <textarea id="description" [(ngModel)]="description" name="description" class="form-control"
+                  rows="3"></textarea>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        
+
+        
+       
+
         <div class="submit mb-2">
           <button type="submit" class="btn btn-dark mt-2" (click)="onSubmit()">Submit</button>
         </div>
       </div>
     </form>
+    <div class="product-container">
+      <h1 class="product-title">Product Details</h1>
 
-    <div class="p-5 userResponse" *ngIf="responseKeys.length > 0">
-      <h3>Product Info</h3>
-      <table class="table table-bordered table-light">
-        <thead>
-          <tr>
-            <th>Key</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <ng-container *ngFor="let key of responseKeys">
-            <tr *ngIf="key !== 'About ITEM'">
-              <td>{{ key }}</td>
-              <td>{{ responseData[key] }}</td>
-            </tr>
-          </ng-container>
-        </tbody>
-      </table>
-
-      <h3>About ITEM</h3>
-      <table class="table table-bordered table-light">
-        <thead>
-          <tr>
-            <th>Point</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <ng-container *ngIf="responseData['About ITEM']">
-            <tr *ngFor="let subKey of getObjectKeys(responseData['About ITEM'])">
-              <td>{{ subKey }}</td>
-              <td>{{ responseData['About ITEM'][subKey] }}</td>
-            </tr>
-          </ng-container>
-        </tbody>
-      </table>
+      <div class="product-about">
+        <h2>About This Item</h2>
+        <p *ngFor="let item of streamData">
+          {{item}}
+        </p>
+      </div>
     </div>
-  </div>
-</div>

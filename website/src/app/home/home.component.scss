@@ -1,34 +1,185 @@
-body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
 .container-fluid {
   padding: 20px;
+  background-image: url(https://img.freepik.com/free-vector/abstract-low-poly-design-with-connecting-lines-dots_1048-9060.jpg?t=st=1722840522~exp=1722844122~hmac=ebfa9cc1dc3efd776f3e64d393eabf2013485c8f40dfc94fe51ff628d0c6c006&w=360);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+background-attachment: fixed;
+font-family: 'Times New Roman', Times, serif;
 }
 
 .chatgpt {
-  // background: #2c3e50;
   border-radius: 10px;
-
-  // box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  padding: 2rem;
+
   .heading{
-    color: #2c3e50;
     font-size: 3rem;
     font-weight: 700;
+    color:#000c0f ;
+    filter: drop-shadow(2px 2px 2px #0e3232);
+    border-bottom: 2px solid rgb(3, 3, 69);
+    padding: 1rem;
   }
 .section1{
   .selectOptions {
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    flex-wrap: wrap;
+    select.form-select {
+      background-color: #efefef;
+      border: 1px solid #374b7b;
+      transition: border-color 0.2s;
+      border-radius: 1rem;
+      color: #022650;
+      padding: 0.5rem;
+      filter: drop-shadow(3px 3px 2px #0e3232);
+      
+      
+    
+    }
+  
+    
+    select.form-select:focus {
+      border-color: #0c1e31;
+    }
+    
+    input.form-control {
+      background-color: #ffffff;
+      border: 1px solid #19181b;
+      transition: border-color 0.3s;
+      color: #010900;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    
+    input.form-control:focus {
+      border-color: #007bff;
+      
+    }
     h4{
-      color: #3498db
+      font-size: 1.3rem;
+      color: #2e0458;
+      font-weight: 700;
+      
+    }
+    h4:hover{
+      color: #2e0458;
+      font-weight: 600;
+      filter: drop-shadow(2px 2px 2px #0e3232);
+    }
+    .card{
+      width: 15rem;
+      padding: 3rem;
+      box-shadow: 2px 2px 7px 2px rgb(40, 41, 41);
+      border-radius: 1rem;
+      overflow: hidden;
+      background-color: #ecf5ff;
+
+      img{
+        width: 100%; 
+        height: auto; 
+        display: block; 
+        object-fit: cover; 
+        max-height: 300px; 
+        border-radius: 1.4rem;
+      }
+      button {
+        border: none;
+        display: flex;
+        justify-content: center;
+        background-color: #0d1624;
+        color: #ffffff;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+        vertical-align: middle;
+        align-items: center;
+        border-radius: 0.5rem;
+        user-select: none;
+        gap: 0.75rem;
+        box-shadow: 0 4px 6px 1px #2f589631, 0 2px 4px 1px #2870dd17;
+        transition: all .6s ease;
+        margin-top: 1rem;
+      }
+      
+      button:hover {
+        box-shadow: 0 10px 15px -3px #0681524f, 0 4px 6px -2px #a6d63d17;
+      }
+      
+      button:focus,button:active {
+        opacity: .85;
+        box-shadow: none;
+        
+      }
+      
+      button svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+   
+   
+
+   
+   
+    label{
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #762c12;
+    }
+
+    textarea{
+      border: 0.5px solid #cd0d0d;
+
+    }
+    strong{
+      color: #010900;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    .leftKey{
+      font-size: 1.4rem;
+      color: rgb(84, 172, 175);
+      font-weight: 600;
+      font-style: oblique;
+
+    }
+    .uploadedimg{
+    .btn {
+        box-shadow: 0 2px 5px rgba(232, 10, 10, 0.2);
+        transition: box-shadow 0.3s, transform 0.3s;
+        background: linear-gradient(to right, rgb(128, 128, 198), rgb(105, 119, 122), rgb(115, 119, 93));
+      
+        border-radius:1.2rem;
+      
+       color: #ffffff;
+      }
+
+     
+    }
+    
+    
+  }
+
+  
+}
+.userDescription{
+  h4{
+    font-size: 1.5rem;
+    color: #242323;
+    font-weight: 900;
+    filter: drop-shadow(2px 3px 2px #c2a177);
+  }
+  .card{
+    background-color: #d6d5d5;
+    filter: drop-shadow(3px 5px 2px #2d2d2c);
+    
+     
+    input{
+      border-radius: 1.4rem;
+     background: linear-gradient(#ffffff, rgb(205, 206, 207));
+     filter: drop-shadow(2px 3px 2px #464543);
+     
     }
   }
 }
@@ -36,84 +187,69 @@ body {
 
 
 
-}
-
-
-
-
-
-.table {
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-}
-
-.form-control, .form-select, .btn {
-  border-radius: 5px;
-}
-
-// .form-control:focus, .form-select:focus {
-//   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-// }
-.btn:hover {
-  background: #0056b3;
-  transform: scale(1.05);
-}
-
-.selectImg .previewContainer {
-  text-align: left;
-}
-
-.previewImage {
-  max-width: 15rem;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.userResponse {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-top: 20px;
-}
-
-select.form-select {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  transition: border-color 0.3s;
-}
-
-select.form-select:focus {
-  border-color: #007bff;
-}
-
-input.form-control {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  transition: border-color 0.3s;
-}
-
-input.form-control:focus {
-  border-color: #007bff;
-}
-
-button.btn {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s, transform 0.3s;
-}
-
-button.btn:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
-}
-
-button.btn:disabled {
-  background: #ccc;
-}
-
 p {
   font-size: 1.2em;
   font-weight: bold;
 }
+.form-group{
+  label{
+    font-size: 1.4rem;
+    color: #1c0236;
+    font-weight: 800;
+  }
+ #description{
+  background-color: #efefef;
+  border: 1px solid #374b7b;
+  transition: border-color 0.2s;
+  border-radius: 1rem;
+  color: #022650;
+  filter: drop-shadow(3px 3px 2px #0e3232);
+ }
+}
+.submit{
+ 
+.btn{
+  background:linear-gradient(to right, rgb(144, 144, 237), rgba(63, 95, 111, 0.26));
+  width: 10rem;
+  border-radius: 2rem;
+  border-color: #000c0f;
+  // filter: drop-shadow(3px 3px 2px #0e3232);
+  box-shadow: 2px 2px 7px 2px rgb(40, 41, 41);
+  color: #fff;
+  font-size: 1.3rem;
+
+  
+  
+}
+.btn:hover{
+  background-color: #007bff;
+  font-size: 1.5rem;
+}
+}
+
+
+
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .form-control, .form-select, .btn {
+//   border-radius: 5px;
+// }
+
+
+
+

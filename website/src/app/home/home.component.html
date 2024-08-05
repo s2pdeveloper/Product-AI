@@ -2,87 +2,99 @@
   <div class="container">
     <form #myForm="ngForm">
       <div class="row chatgpt">
-        <h1 class="text-center heading">WELCOME TO AI PRODUCT</h1>
+        <h1 class="text-center heading">Generate Product Description</h1>
         <div class="col-12 pt-5 section1">
-          <div class="selectOptions row">
-            <div class="col-6">
-              <h4>Select You Want Category</h4>
-              <select class="mt-3 mb-2 p-3 form-select" [(ngModel)]="selectedCategoryId" name="categories"
+          <div class="selectOptions row ">
+            <div class="col-6 ">
+              <h4>Select Your Category</h4>
+               <select class=" form-select" [(ngModel)]="selectedCategoryId" name="categories"
                 (change)="onCategoryChange()" #category="ngModel" required>
-                <option value="" disabled selected>Select Category</option>
+                <option class="categories" value="" disabled selected>Select Category</option>
                 <option *ngFor="let category of categories" [value]="category._id">{{ category.name }}</option>
               </select>
-            </div>
-            <div class="col-6">
-              <h4>Select You Want Product</h4>
-              <select class=" mt-3 mb-2 p-3 form-select" [(ngModel)]="selectedProductId" name="products"
+              <h4 class="mt-3">Select Your Product</h4>
+              <select class=" form-select" [(ngModel)]="selectedProductId" name="products"
                 (change)="onProductChange()" #product="ngModel" required>
-                <option value="" disabled selected >Select Product</option>
+                <option class="categories" value="" disabled selected>Select Product</option>
                 <option *ngFor="let product of products" [value]="product._id">{{ product.name }}</option>
               </select>
             </div>
-          </div>
-        </div>
-       
-        <div class="col-12 section2 mt-2">
-          <div class="row">
-          <div class=" col-6 ">
-            <p>Select your  Product Image</p>
-            <div class="previewContainer ">
-              <img  [src]="imageSrc" alt="Image Preview" class="previewImage mt-2">
-            </div><br>
-            <input type="file" (change)="onFileSelected($event)" accept="image/*" required>
-            <div *ngIf="!imageSrc" class="text-light">
-              Image is required.
-            </div>
-          </div>
-            <div class="col-5 ms-5">
-              <div *ngIf="keyValuePairs.length > 0">
-                <h4>Describe your Requirements in detail.</h4>
-                <table class="table table-bordered">
-                  <thead class="table-success">
-                    <tr>
-                      <th>field</th>
-                      <th>Answer</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let pair of keyValuePairs">
-                      <td class="text-primary">{{ pair.key }}</td>
-                      <td>
-                        <input type="text" [(ngModel)]="pair.value" name="{{ pair.key }}" class="form-control">
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+
+            <div class="col-6">
+              <div class="uploadedimg d-flex justify-content-center ">
+                <div class="footer ">
+                  <!-- Add File Button, Only Enabled if Product is Selected -->
+                  <div class="row">
+                    <div class="card col-6">
+                      <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;" />
+                      <div *ngIf="imageSrc">
+                        <img [src]="imageSrc" alt="Selected Image" />
+                      </div>
+                      
+                      <button class="btn btn-primary" *ngIf="isFileInputEnabled" (click)="fileInput.click()" aria-label="Add File">
+                        ADD FILE
+                      </button>
+                      
+                      <p class="mt-1" *ngIf="!imageSrc">No file selected</p>
+                    </div>
+                    
+                    
+                  </div>
+
+                  <!-- Display Selected Image or Placeholder Text -->
+                  <!-- <div *ngIf="imageSrc">
+                    <img [src]="imageSrc" alt="Selected Image"
+                      style="max-width: 100%; height: auto; margin-bottom: 10px;" class="mt-3" />
+                    <p class="mt-1">File selected</p>
+                  </div>
+                  <p class="mt-1" *ngIf="!imageSrc">No file selected</p> -->
+                </div>
+
+                <!-- Hidden File Input -->
+              
+                <input id="file" type="file" #fileInput (change)="onFileSelected($event)" accept="image/*"
+                style="display: none;">
               </div>
             </div>
         </div>
       </div>
-
-         <div class="col-12">
-          <div class="row">
-            <div class="col-5">
-              <div class="form-group">
-                <label for="description">Description (optional)</label>
-                <textarea id="description" [(ngModel)]="description" name="description" class="form-control"
-                  rows="3"></textarea>
+      <div class="col-12">
+        <div *ngIf="keyValuePairs.length > 0" class="userDescription mt-4">
+          <h4 class="text-center ">Fill The Form for Better Result</h4>
+          <div class="card">
+            <div class="card-header table-success">
+              <div class="row">
+                <div class="col-md-6 text-center"><strong>Product Functionalities</strong></div>
+                <div class="col-md-6 text-center"><strong>Your Specifications</strong></div>
               </div>
             </div>
-            
+            <div class="card-body">
+              <div *ngFor="let pair of keyValuePairs" class="mb-3">
+                <div class="row">
+                  <div class="col-md-6 text-center "><span class="leftKey">{{ pair.key }} </span></div>
+                  <div class="col-md-6 ">
+                    <input type="text" [(ngModel)]="pair.value" name="{{ pair.key }}" class="form-control">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        
-        
+      </div>
 
-        
-       
-
-        <div class="submit mb-2">
-          <button type="submit" class="btn btn-dark mt-2" (click)="onSubmit()">Submit</button>
+      <div class="col-12">
+        <div class="form-group mt-3">
+          <label for="description " class="mb-2">Description (optional)</label>
+          <textarea id="description" [(ngModel)]="description" name="description" class="form-control"
+            rows="3"></textarea>
+        </div>
+      </div>
+        <div class="submit  mb-2 p-4 d-flex justify-content-center align-item-center">
+          <button type="submit" class=" btn  " (click)="onSubmit()">Submit</button>
         </div>
       </div>
     </form>
+
     <div class="product-container">
       <h1 class="product-title">Product Details</h1>
 
@@ -93,3 +105,7 @@
         </p>
       </div>
     </div>
+
+   
+    
+    

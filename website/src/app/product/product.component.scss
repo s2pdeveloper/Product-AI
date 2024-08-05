@@ -1,0 +1,62 @@
+
+.landing{
+    margin: 0;
+    padding: 0;
+    
+    
+    .container-fluid{
+       height: auto;
+       background:linear-gradient(to right,#05f98f, rgb(108, 184, 159),rgb(204, 251, 143));
+       min-height: 100vh;
+       
+        .main{
+            .middle{
+          padding-top: 3rem;
+          color:#000;
+          font-size: 0.5rem;
+          font-weight: 700;
+            
+              
+            }
+            .userForm{
+                display: flex;
+                justify-content: center;
+                padding-top: 2rem;
+                .card{
+                  background-color: #3d3c3d;
+                  .title{
+                    
+                    color: white;
+                    box-shadow: 10px 4px 15px rgba(0, 0, 0, 0.1);
+                    
+                  }
+
+                }
+                
+                
+                  
+                  
+            
+
+            }
+             
+              
+              
+            .getStarted{
+                display: flex;
+                justify-content: center;
+                margin-top: 1rem;
+                
+                .btn{
+                    background-color: #f8f5f3;
+                   
+                }
+            
+            }
+    
+    }
+    }
+}
+
+
+
